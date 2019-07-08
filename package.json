@@ -1,0 +1,24 @@
+{
+  "name": "scoop-docs",
+  "private": true,
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "now-build": "yarn build"
+  },
+  "dependencies": {
+    "@vuepress/plugin-google-analytics": "^1.0.0-rc.1",
+    "fast-glob": "^3.0.4",
+    "vuepress": "^1.0.2"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  }
+}
