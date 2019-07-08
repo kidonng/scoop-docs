@@ -11,13 +11,11 @@ module.exports = {
       { text: 'Scoop', link: 'https://github.com/lukesampson/scoop' }
     ],
     sidebar,
-    lastUpdated: true,
     repo: 'kidonng/scoop-docs',
     docsDir: 'docs',
     editLinks: true
   },
   plugins: [
-    ['vuepress-plugin-clean-urls'],
     [
       '@vuepress/google-analytics',
       {

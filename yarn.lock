@@ -7085,11 +7085,6 @@ vuepress-html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
-vuepress-plugin-clean-urls@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.npm.taobao.org/vuepress-plugin-clean-urls/download/vuepress-plugin-clean-urls-1.0.3.tgz#87ef2349d6d1f835dc2519abeb0cb99ccf1698a5"
-  integrity sha1-h+8jSdbR+DXcJRmr6wy5nM8WmKU=
-
 vuepress-plugin-container@^2.0.0:
   version "2.0.2"
   resolved "https://registry.npm.taobao.org/vuepress-plugin-container/download/vuepress-plugin-container-2.0.2.tgz#3489cc732c7a210b31f202556e1346125dffeb73"
