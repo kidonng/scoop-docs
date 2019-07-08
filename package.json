@@ -1,0 +1,23 @@
+{
+  "name": "scoop-docs",
+  "private": true,
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "now-build": "yarn docs:build"
+  },
+  "dependencies": {
+    "fast-glob": "^3.0.4",
+    "vuepress": "^1.0.2"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  }
+}
