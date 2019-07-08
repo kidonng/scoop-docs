@@ -1,4 +1,4 @@
-<h1 align="center">Scoop Documentation</h1>
+<h1 align="center">Scoop Docs</h1>
 
 <div align="center">
 
@@ -7,10 +7,16 @@
 
 </div>
 
-[Scoop wiki](https://github.com/lukesampson/scoop/wiki) done right.
+[Scoop documentation](https://github.com/lukesampson/scoop/wiki) done right.
+
+**DISCLAIMER** This is an unofficial mirror-like documentation repository.
 
 ## Development
 
 - Setup `yarn`
-- Run `yarn docs:dev`
-- Build `yarn docs:build`
+- Run `yarn dev`
+- Build `yarn build`
+
+## Similar projects
+
+- [Better documentation for Scoop.sh](https://github.com/pakeweb/scoop.sh)
