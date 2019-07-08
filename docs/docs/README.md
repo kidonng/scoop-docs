@@ -1,4 +1,4 @@
-# Scoop
+# Intro
 
 Scoop is a command-line installer for Windows inspired by [Homebrew](http://mxcl.github.io/homebrew/) and [sub](https://github.com/37signals/sub#readme).
 

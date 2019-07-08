@@ -17,7 +17,7 @@ You can allow this by running `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 
 ## Installing Scoop
 
-Run this command from your PowerShell to install scoop to its default location (`C:\Users\<user>\scoop`)
+Run this command from your PowerShell to install scoop to its default location (`C:\Users\<user>\scoop`):
 
 ```powershell
 iex (new-object net.webclient).downloadstring('https://get.scoop.sh')

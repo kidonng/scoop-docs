@@ -1,5 +1,11 @@
 {
   "version": 2,
   "builds": [{ "src": "package.json", "use": "@now/static-build" }],
+  "routes": [
+    {
+      "src": "^/assets/.*",
+      "headers": { "cache-control": "max-age=31536000, immutable" }
+    }
+  ],
   "alias": "scoop-docs.now.sh"
 }
