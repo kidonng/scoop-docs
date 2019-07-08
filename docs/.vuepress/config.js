@@ -9,5 +9,6 @@ module.exports = {
     lastUpdated: true,
     repo: 'kidonng/scoop-docs',
     editLinks: true
-  }
+  },
+  dest: 'dist'
 }
