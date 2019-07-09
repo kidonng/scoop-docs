@@ -1,107 +1,109 @@
 <template>
-  <ais-instant-search
-    :search-client="searchClient"
-    :index-name="indexName"
-    :routing="routing"
-  >
-    <ais-search-box />
+  <ClientOnly>
+    <ais-instant-search
+      :search-client="searchClient"
+      :index-name="indexName"
+      :routing="routing"
+    >
+      <ais-search-box />
 
-    <ais-state-results>
-      <template slot-scope="{ query, hits }">
-        <template v-if="query.length > 0 && hits.length > 0">
-          <ais-hits>
-            <table slot-scope="{ items }">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Description</th>
-                  <th>Install</th>
-                  <th>Download</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="item in items" :key="item.objectID">
-                  <td>
-                    <strong>
-                      <ais-highlight :hit="item" attribute="name" />
-                    </strong>
-                    ({{ item.version }})
-                  </td>
-                  <td>
-                    <ais-highlight :hit="item" attribute="description" />
-                    <ExternalLink
-                      v-if="item.homepage"
-                      :href="item.homepage"
-                      text="Homepage"
-                    />
-                  </td>
-                  <td>
-                    <code
-                      title="Click to copy"
-                      :data-clipboard-text="
-                        `scoop bucket add ${
-                          item.bucket.split('/')[1]
-                        } https://github.com/${item.bucket}`
-                      "
-                    >
-                      scoop bucket add
-                      <strong>{{ item.bucket.split('/')[1] }}</strong>
-                      https://github.com/{{ item.bucket }}
-                    </code>
-                    <code
-                      title="Click to copy"
-                      :data-clipboard-text="`scoop install ${item.name}`"
-                    >
-                      scoop install {{ item.name }}
-                    </code>
-                  </td>
-                  <td>
-                    <template v-if="item.url">
-                      <ExternalLink :href="item.url" text="Download" />
-                      <button :data-clipboard-text="convert(item.hash)">
-                        Copy Hash
-                      </button>
-                    </template>
-                    <ul v-else>
-                      <li v-if="item.architecture['64bit']">
-                        <ExternalLink
-                          :href="item.architecture['64bit'].url"
-                          text="64bit"
-                        />
-                        <button
-                          :data-clipboard-text="
-                            convert(item.architecture['64bit'].hash)
-                          "
-                        >
+      <ais-state-results>
+        <template slot-scope="{ query, hits }">
+          <template v-if="query.length > 0 && hits.length > 0">
+            <ais-hits>
+              <table slot-scope="{ items }">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Install</th>
+                    <th>Download</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="item in items" :key="item.objectID">
+                    <td>
+                      <strong>
+                        <ais-highlight :hit="item" attribute="name" />
+                      </strong>
+                      ({{ item.version }})
+                    </td>
+                    <td>
+                      <ais-highlight :hit="item" attribute="description" />
+                      <ExternalLink
+                        v-if="item.homepage"
+                        :href="item.homepage"
+                        text="Homepage"
+                      />
+                    </td>
+                    <td>
+                      <code
+                        title="Click to copy"
+                        :data-clipboard-text="
+                          `scoop bucket add ${
+                            item.bucket.split('/')[1]
+                          } https://github.com/${item.bucket}`
+                        "
+                      >
+                        scoop bucket add
+                        <strong>{{ item.bucket.split('/')[1] }}</strong>
+                        https://github.com/{{ item.bucket }}
+                      </code>
+                      <code
+                        title="Click to copy"
+                        :data-clipboard-text="`scoop install ${item.name}`"
+                      >
+                        scoop install {{ item.name }}
+                      </code>
+                    </td>
+                    <td>
+                      <template v-if="item.url">
+                        <ExternalLink :href="item.url" text="Download" />
+                        <button :data-clipboard-text="convert(item.hash)">
                           Copy Hash
                         </button>
-                      </li>
-                      <li v-if="item.architecture['32bit']">
-                        <ExternalLink
-                          :href="item.architecture['32bit'].url"
-                          text="32bit"
-                        />
-                        <button
-                          :data-clipboard-text="
-                            convert(item.architecture['32bit'].hash)
-                          "
-                        >
-                          Copy Hash
-                        </button>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </ais-hits>
+                      </template>
+                      <ul v-else>
+                        <li v-if="item.architecture['64bit']">
+                          <ExternalLink
+                            :href="item.architecture['64bit'].url"
+                            text="64bit"
+                          />
+                          <button
+                            :data-clipboard-text="
+                              convert(item.architecture['64bit'].hash)
+                            "
+                          >
+                            Copy Hash
+                          </button>
+                        </li>
+                        <li v-if="item.architecture['32bit']">
+                          <ExternalLink
+                            :href="item.architecture['32bit'].url"
+                            text="32bit"
+                          />
+                          <button
+                            :data-clipboard-text="
+                              convert(item.architecture['32bit'].hash)
+                            "
+                          >
+                            Copy Hash
+                          </button>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </ais-hits>
 
-          <ais-pagination :show-first="false" :show-last="false" />
+            <ais-pagination :show-first="false" :show-last="false" />
+          </template>
+          <span v-if="hits.length === 0">No results 😥</span>
         </template>
-        <span v-if="hits.length === 0">No results 😥</span>
-      </template>
-    </ais-state-results>
-  </ais-instant-search>
+      </ais-state-results>
+    </ais-instant-search>
+  </ClientOnly>
 </template>
 
 <script>
