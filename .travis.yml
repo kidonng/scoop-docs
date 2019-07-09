@@ -1,0 +1,10 @@
+dist: xenial
+language: node_js
+node_js: lts/*
+cache: yarn
+
+install: true
+script:
+  - cd scripts
+  - yarn
+  - node index.js
