@@ -1,0 +1,11 @@
+{
+  "name": "scoop-apps-index",
+  "private": true,
+  "dependencies": {
+    "@octokit/graphql": "^2.1.3",
+    "algoliasearch": "^3.33.0"
+  },
+  "devDependencies": {
+    "@types/algoliasearch": "^3.30.12"
+  }
+}
