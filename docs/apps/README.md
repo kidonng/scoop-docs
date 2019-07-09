@@ -19,6 +19,6 @@ export default {
 .apps .page-edit
   display none
 
-.theme-default-content:not(.custom)
+.apps .theme-default-content
   max-width 960px
 </style>
