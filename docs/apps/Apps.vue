@@ -38,6 +38,7 @@
                     </td>
                     <td>
                       <code
+                        class="command"
                         title="Click to copy"
                         :data-clipboard-text="
                           `scoop bucket add ${
@@ -50,6 +51,7 @@
                         https://github.com/{{ item.bucket }}
                       </code>
                       <code
+                        class="command"
                         title="Click to copy"
                         :data-clipboard-text="`scoop install ${item.name}`"
                       >
@@ -99,7 +101,15 @@
 
             <ais-pagination :show-first="false" :show-last="false" />
           </template>
+
           <span v-if="hits.length === 0">No results 😥</span>
+
+          <div v-if="query.length === 0" class="tip custom-block">
+            <p>
+              You can also search for apps by running
+              <code>scoop search [app-name]</code>.
+            </p>
+          </div>
         </template>
       </ais-state-results>
     </ais-instant-search>
@@ -158,7 +168,7 @@ export default {
 .ais-Hits
   margin-bottom 1rem
 
-code
+.command
   display block
   margin-top .5rem
   cursor pointer

@@ -91,7 +91,9 @@ const index = client.initIndex(process.env.ALGOLIA_INDEX)
   })
 
   let data = Object.values(await graphql(`{${query}}`)).map(bucket =>
-    bucket.object.entries.filter(entry => entry.name.endsWith('.json'))
+    bucket.object.entries
+      .filter(entry => entry.name.endsWith('.json'))
+      .filter(entry => !(entry.name === 'schema.json'))
   )
 
   let apps = []
