@@ -4,7 +4,8 @@ export default ({ Vue }) => {
   Vue.use(InstantSearch)
 
   // https://github.com/algolia/algoliasearch-client-javascript/issues/691
-  window.process = {
-    env: { DEBUG: undefined }
-  }
+  if (window)
+    window.process = {
+      env: { DEBUG: undefined }
+    }
 }
