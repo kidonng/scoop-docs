@@ -3,11 +3,8 @@ const graphql = require('@octokit/graphql').defaults({
 })
 const algoliasearch = require('algoliasearch')
 
-const client = algoliasearch(
-  process.env.ALGOLIA_APPID,
-  process.env.ALGOLIA_APIKEY
-)
-const index = client.initIndex(process.env.ALGOLIA_INDEX)
+const client = algoliasearch('F8ONSWSRN9', process.env.ALGOLIA_APIKEY)
+const index = client.initIndex('scoop_apps')
 
 ;(async () => {
   const known = (await graphql(`
