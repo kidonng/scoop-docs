@@ -3,12 +3,6 @@ language: node_js
 node_js: lts/*
 cache: yarn
 
-branches:
-  only:
-    - master
+if: branch = master
 
-install: true
-script:
-  - cd scripts
-  - yarn
-  - node index.js
+script: node package/index/script.js
