@@ -1,5 +1,6 @@
 {
   "name": "scoop-apps-index",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@octokit/graphql": "^2.1.3",

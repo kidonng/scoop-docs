@@ -1,0 +1,18 @@
+{
+  "name": "scoop-docs",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@vuepress/plugin-google-analytics": "^1.0.2",
+    "algoliasearch": "^3.33.0",
+    "clipboard": "^2.0.4",
+    "fast-glob": "^3.0.4",
+    "instantsearch.css": "^7.3.1",
+    "instantsearch.js": "^3.5.4",
+    "vue-instantsearch": "^2.2.1",
+    "vuepress": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/algoliasearch": "^3.30.12"
+  }
+}

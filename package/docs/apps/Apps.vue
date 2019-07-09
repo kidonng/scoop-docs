@@ -174,6 +174,15 @@ export default {
   cursor pointer
 
 button
-  background none
-  border .1rem solid $accentColor
+  white-space nowrap
+  border 0
+  border-bottom 1px solid darken($accentColor, 10%)
+  padding .4rem .8rem
+  border-radius 4px
+  color white
+  background-color $accentColor
+  transition background-color .1s ease
+
+  &:hover
+    background-color lighten($accentColor, 10%)
 </style>
