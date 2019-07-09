@@ -10,7 +10,7 @@ const client = algoliasearch(
 const index = client.initIndex(process.env.ALGOLIA_INDEX)
 
 ;(async () => {
-  let known = (await graphql(`
+  const known = (await graphql(`
     {
       repository(owner: "lukesampson", name: "scoop") {
         object(expression: "master:buckets.json") {
@@ -21,10 +21,19 @@ const index = client.initIndex(process.env.ALGOLIA_INDEX)
       }
     }
   `)).repository.object.text
+  let buckets = [
+    ...Object.values(JSON.parse(known)),
+    // Some most starred buckets (https://github.com/rasa/scoop-directory/blob/master/by-stars.md)
+    'https://github.com/Ash258/scoop-Ash258',
+    'https://github.com/h404bi/dorado',
+    'https://github.com/TheCjw/scoop-retools',
+    'https://github.com/rasa/scoops',
+    'https://github.com/MCOfficer/scoop-nirsoft'
+  ]
 
   let query = ''
 
-  known = Object.values(JSON.parse(known)).map((bucket, index) => {
+  buckets = buckets.map((bucket, index) => {
     // 19 === 'https://github.com/'.length
     const repo = bucket.substring(19).split('/')
     const owner = repo[0]
@@ -55,12 +64,12 @@ const index = client.initIndex(process.env.ALGOLIA_INDEX)
         entry => entry.name === 'bucket' && entry.type === 'tree'
       )
     )
-      known[index].subDir = true
+      buckets[index].subDir = true
   })
 
   query = ''
 
-  known.forEach((bucket, index) => {
+  buckets.forEach((bucket, index) => {
     query += `
       bucket${index}: repository(owner: "${bucket.owner}", name: "${
       bucket.name
@@ -82,37 +91,35 @@ const index = client.initIndex(process.env.ALGOLIA_INDEX)
   })
 
   let data = Object.values(await graphql(`{${query}}`)).map(bucket =>
-    bucket.object.entries.filter(entry => entry.name.endsWith('.json'))
+    bucket.object.entries
+      .filter(entry => entry.name.endsWith('.json'))
+      .filter(entry => !(entry.name === 'schema.json'))
   )
 
   let apps = []
 
   data.forEach((bucket, index) =>
-    bucket.forEach(app => {
-      const data = JSON.parse(app.object.text.replace(/\n/g, ''))
-      const {
-        version,
-        description,
-        license,
-        homepage,
-        url,
-        hash,
-        architecture
-      } = data
+    bucket.forEach(entry => {
+      const data = JSON.parse(entry.object.text.replace(/\n/g, ''))
+      const { version, description, homepage, url, hash, architecture } = data
 
-      apps.push({
-        bucket: `${known[index].owner}/${known[index].name}`,
-        name: app.name.substring(0, app.name.indexOf('.json')),
+      let app = {
+        bucket: `${buckets[index].owner}/${buckets[index].name}`,
+        name: entry.name.substring(0, entry.name.indexOf('.json')),
         version,
         description,
-        license,
         homepage,
         url,
-        hash,
-        architecture: !url && architecture
-      })
+        hash
+      }
+
+      if (!url) app.architecture = architecture
+
+      apps.push(app)
     })
   )
+
+  console.log(`Buckets: ${buckets.length} Apps: ${apps.length}`)
 
   index.clearIndex().then(() => index.addObjects(apps))
 })()

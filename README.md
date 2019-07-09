@@ -7,9 +7,9 @@
 
 </div>
 
-[Scoop documentation](https://github.com/lukesampson/scoop/wiki) done right.
+[Scoop documentation](https://github.com/lukesampson/scoop/wiki) done right, plus app search for known buckets & more!
 
-**DISCLAIMER** This is an unofficial mirror-like documentation repository.
+**DISCLAIMER** This project is unofficial. Contents' copyright belongs to their author/owner.
 
 ## Development
 
@@ -17,6 +17,6 @@
 - Run `yarn dev`
 - Build `yarn build`
 
-## Similar projects
+## Thanks
 
-- [Better documentation for Scoop.sh](https://github.com/pakeweb/scoop.sh)
+This project is inspired by [Better documentation for Scoop.sh](https://github.com/pakeweb/scoop.sh).
