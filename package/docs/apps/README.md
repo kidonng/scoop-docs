@@ -20,5 +20,5 @@ export default {
   display none
 
 .apps .theme-default-content
-  max-width 960px
+  max-width 960px !important
 </style>
