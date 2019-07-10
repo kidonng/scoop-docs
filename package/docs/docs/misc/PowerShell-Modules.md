@@ -10,15 +10,13 @@ The directories under `~\scoop\modules` aren't normal directories. Each is a **d
 &nbsp;&nbsp;&rarr; _points to_ `~\scoop\apps\mypsmodule\current`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&rarr; _points to_ `~\scoop\apps\mypsmodule\1.16.0.rc2`
 
-The key part of the [Scoop manifest](App-Manifests) for a PowerShell module is this:
+The key part of the [Scoop manifest](../concepts/App-Manifests.md) for a PowerShell module is this:
 
 ```json
 {
-...
-    "psmodule": {
-        "name": "NameOfTheModule"
-    }
-...
+  "psmodule": {
+    "name": "NameOfTheModule"
+  }
 }
 ```
 

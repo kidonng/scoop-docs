@@ -1,6 +1,6 @@
 # Example Setup Scripts
 
-Here are some example 'get-all-my-stuff' scripts.
+Here are some example "get-all-my-stuff" scripts.
 
 It's assumed that you have Powershell 5 and you've already installed Scoop, e.g.
 

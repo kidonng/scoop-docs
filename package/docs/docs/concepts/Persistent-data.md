@@ -5,7 +5,7 @@
 If you need to store data which should persist between updates you should use `~/scoop/persist/<app>/`.
 Inside the manifest, the path to the data directory is available in the `$persist_dir` variable.
 
-The [PHP](/ScoopInstaller/Main/blob/master/bucket/php.json) package uses it for the configuration files.
+The [PHP](https://github.com/ScoopInstaller/Main/blob/master/bucket/php.json) package uses it for the configuration files.
 
 ## App manifest
 
@@ -16,7 +16,7 @@ During the installation, any persistent data is copied into the data directory a
 
 ### Definition
 
-The `persist` definition can be a string if only one item is needed or an array for multiple items.
+The `persist` definition can be string if only one item is needed or an array for multiple items.
 
 Optionally an item can have a different name inside the data directory:
 
@@ -31,11 +31,11 @@ Optionally an item can have a different name inside the data directory:
 
 ### Examples
 
-- [MySQL](/ScoopInstaller/Main/blob/master/bucket/mysql.json)
-- [MariaDB](/ScoopInstaller/Main/blob/master/bucket/mariadb.json)
-- [NGINX](/ScoopInstaller/Main/blob/master/bucket/nginx.json)
-- [node.js](/ScoopInstaller/Main/blob/master/bucket/nodejs.json)
-- [PHP](/ScoopInstaller/Main/blob/master/bucket/php.json)
+- [MySQL](https://github.com/ScoopInstaller/Main/blob/master/bucket/mysql.json)
+- [MariaDB](https://github.com/ScoopInstaller/Main/blob/master/bucket/mariadb.json)
+- [Nginx](https://github.com/ScoopInstaller/Main/blob/master/bucket/nginx.json)
+- [Node.js](https://github.com/ScoopInstaller/Main/blob/master/bucket/nodejs.json)
+- [PHP](https://github.com/ScoopInstaller/Main/blob/master/bucket/php.json)
 
 ## Uninstall
 

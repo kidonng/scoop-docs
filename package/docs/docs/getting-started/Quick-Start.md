@@ -17,7 +17,7 @@ You can allow this by running `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 
 ## Installing Scoop
 
-Run this command from your PowerShell to install scoop to its default location (`C:\Users\<user>\scoop`):
+Run this command from your PowerShell to install Scoop to its default location (`C:\Users\<user>\scoop`):
 
 ```powershell
 iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
@@ -43,7 +43,7 @@ Assuming you didn't see any error messages, Scoop is now ready to run.
 
 ## Installing global apps to custom directory
 
-Assuming the target directory is `C:\apps`, in a admin-enabled PowerShell command console, run:
+Assuming the target directory is `C:\apps`, in an admin-enabled PowerShell command console, run:
 
 ```powershell
 $env:SCOOP_GLOBAL='c:\apps'
@@ -57,17 +57,23 @@ Although Scoop is written in PowerShell, its interface is closer to Git and Merc
 
 To get an overview of Scoop's interface, run:
 
-    scoop help
+```powershell
+scoop help
+```
 
 You'll see a list of commands with a brief summary of what each command does. For more detailed information on a command, run `scoop help <command>`, e.g. `scoop help install` (try it!).
 
 Now that you have a rough idea of how Scoop commands work, let's try installing something.
 
-    scoop install curl
+```powershell
+scoop install curl
+```
 
 You'll probably see a warning about a missing hash, but you should see a final message that cURL was installed successfully. Try running it:
 
-    curl -L https://get.scoop.sh
+```powershell
+curl -L https://get.scoop.sh
+```
 
 You should see some HTML, probably with a 'document moved' message. Note that, like when you installed Scoop, you didn't need to restart your console for the program to work. Also, if you've installed cURL manually before you might have noticed that you didn't get an error about SSL—Scoop downloaded a certificate bundle for you.
 
@@ -75,28 +81,38 @@ You should see some HTML, probably with a 'document moved' message. Note that, l
 
 Let's say you want to install the `ssh` command but you're not sure where to find it. Try running:
 
+```powershell
 scoop search ssh
+```
 
-You'll should see a result for 'openssh'. This is an easy case because the name of the app contains 'ssh'.
+You'll should see a result for `openssh`. This is an easy case because the name of the app contains 'ssh'.
 
 You can also find apps by the name of the commands they install. For example,
 
-    scoop search hg
+```powershell
+scoop search hg
+```
 
-This shows you that the 'mercurial' app includes 'hg.exe'.
+This shows you that the `mercurial` app includes `hg.exe`.
 
 ## Updating Scoop
 
 To get the latest version of Scoop you have to run the command
 
-    scoop update
+```powershell
+scoop update
+```
 
 This will download the latest version of scoop and updates the local app manifests.
 
 After you updated Scoop you can update individual apps
 
-    scoop update curl
+```powershell
+scoop update curl
+```
 
 If you want to update all your installed apps, you can run
 
-    scoop update *
+```powershell
+scoop update *
+```

@@ -6,7 +6,7 @@ Java development kits (JDK) and runtime environments (JRE) are available through
 
 To add the bucket, run:
 
-```
+```powershell
 scoop bucket add java
 ```
 
@@ -20,7 +20,7 @@ The Scoop Java bucket contains five different OpenJDK builds.
 
 Oracle's OpenJDK version ([openjdk.json](https://github.com/ScoopInstaller/Java/blob/master/bucket/openjdk.json)) can be installed with:
 
-```
+```powershell
 scoop install openjdk
 ```
 
@@ -34,7 +34,7 @@ scoop install openjdk
 
   [adopt12-hotspot.json](https://github.com/ScoopInstaller/Java/blob/master/bucket/adopt12-hotspot.json) can be installed with:
 
-  ```
+  ```powershell
   scoop install adopt12-hotspot
   ```
 
@@ -42,7 +42,7 @@ scoop install openjdk
 
   [adopt12-hotspot-jre.json](https://github.com/ScoopInstaller/Java/blob/master/bucket/adopt12-hotspot-jre.json) can be installed with:
 
-  ```
+  ```powershell
   scoop install adopt12-hotspot-jre
   ```
 
@@ -52,7 +52,7 @@ scoop install openjdk
 
   [adopt12-openj9.json](https://github.com/ScoopInstaller/Java/blob/master/bucket/adopt12-hotspot-jre.json) can be installed with:
 
-  ```
+  ```powershell
   scoop install adopt12-openj9
   ```
 
@@ -60,7 +60,7 @@ scoop install openjdk
 
   [adopt12-openj9-jre.json](https://github.com/ScoopInstaller/Java/blob/master/bucket/adopt12-hotspot-jre.json) can be installed with:
 
-  ```
+  ```powershell
   scoop install adopt12-openj9-jre
   ```
 
