@@ -2,8 +2,8 @@
   "name": "scoop-docs",
   "private": true,
   "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
+    "dev": "vuepress dev package/docs",
+    "build": "vuepress build package/docs",
     "now-build": "yarn build"
   },
   "dependencies": {
@@ -22,6 +22,9 @@
   "engines": {
     "node": "10.x"
   },
+  "workspaces": [
+    "package/*"
+  ],
   "prettier": {
     "semi": false,
     "singleQuote": true

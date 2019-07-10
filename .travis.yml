@@ -9,6 +9,6 @@ branches:
 
 install: true
 script:
-  - cd scripts
+  - cd package/index
   - yarn
-  - node index.js
+  - node script.js
