@@ -1,27 +1,31 @@
 <template>
   <ClientOnly>
     <ais-instant-search
-      :search-client="searchClient"
       :index-name="indexName"
+      :search-client="searchClient"
       :routing="routing"
     >
-      <ais-search-box />
+      <ais-search-box
+        placeholder="Search apps from known buckets"
+        autofocus
+        show-loading-indicator
+      />
 
       <ais-state-results>
-        <template slot-scope="{ query, hits }">
-          <template v-if="query.length > 0 && hits.length > 0">
+        <template slot-scope="{ query, nbHits, nbPages, page }">
+          <template v-if="nbHits">
             <ais-hits>
               <table slot-scope="{ items }">
                 <thead>
                   <tr>
-                    <th>Name</th>
+                    <th>App ({{ nbHits }})</th>
                     <th>Description</th>
-                    <th>Install</th>
+                    <th>Install (Click to copy)</th>
                     <th>Download</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="item in items" :key="item.objectID">
+                  <tr v-for="(item, index) in items" :key="item.objectID">
                     <td>
                       <strong>
                         <ais-highlight :hit="item" attribute="name" />
@@ -30,67 +34,61 @@
                     </td>
                     <td>
                       <ais-highlight :hit="item" attribute="description" />
-                      <ExternalLink
-                        v-if="item.homepage"
-                        :href="item.homepage"
-                        text="Homepage"
-                      />
+                      <ExternalLink v-if="item.homepage" :href="item.homepage">
+                        Homepage
+                      </ExternalLink>
                     </td>
                     <td>
                       <code
-                        class="command"
-                        title="Click to copy"
-                        :data-clipboard-text="
-                          `scoop bucket add ${
-                            item.bucket.split('/')[1]
-                          } https://github.com/${item.bucket}`
-                        "
+                        v-if="!item.main"
+                        class="clip"
+                        :id="`bucket${index}`"
+                        :data-clipboard-target="`#bucket${index}`"
                       >
                         scoop bucket add
-                        <strong>{{ item.bucket.split('/')[1] }}</strong>
-                        https://github.com/{{ item.bucket }}
+                        <template v-if="item.known">
+                          {{
+                            item.bucket
+                              .split('/')[1]
+                              .toLowerCase()
+                              .includes('scoop-')
+                              ? item.bucket
+                                  .split('/')[1]
+                                  .toLowerCase()
+                                  .substring(6)
+                              : item.bucket.split('/')[1].toLowerCase()
+                          }}
+                        </template>
+                        <template v-else>
+                          <strong>{{ item.bucket.split('/')[1] }}</strong>
+                          https://github.com/{{ item.bucket }}
+                        </template>
                       </code>
                       <code
-                        class="command"
-                        title="Click to copy"
-                        :data-clipboard-text="`scoop install ${item.name}`"
+                        class="clip"
+                        :id="`app${index}`"
+                        :data-clipboard-target="`#app${index}`"
                       >
                         scoop install {{ item.name }}
                       </code>
                     </td>
                     <td>
                       <template v-if="item.url">
-                        <ExternalLink :href="item.url" text="Download" />
-                        <button :data-clipboard-text="convert(item.hash)">
-                          Copy Hash
-                        </button>
+                        <ExternalLink :href="item.url">Download</ExternalLink>
+                        <CopyHash :hash="item.hash" />
                       </template>
                       <ul v-else>
                         <li v-if="item.architecture['64bit']">
-                          <ExternalLink
-                            :href="item.architecture['64bit'].url"
-                            text="64bit"
-                          />
-                          <button
-                            :data-clipboard-text="
-                              convert(item.architecture['64bit'].hash)
-                            "
-                          >
-                            Copy Hash
-                          </button>
+                          <ExternalLink :href="item.architecture['64bit'].url">
+                            64bit
+                          </ExternalLink>
+                          <CopyHash :hash="item.architecture['64bit'].hash" />
                         </li>
                         <li v-if="item.architecture['32bit']">
-                          <ExternalLink
-                            :href="item.architecture['32bit'].url"
-                            text="32bit"
-                          />
-                          <button
-                            :data-clipboard-text="
-                              convert(item.architecture['32bit'].hash)
-                            "
-                          >
-                            Copy Hash
-                          </button>
+                          <ExternalLink :href="item.architecture['32bit'].url">
+                            32bit
+                          </ExternalLink>
+                          <CopyHash :hash="item.architecture['32bit'].hash" />
                         </li>
                       </ul>
                     </td>
@@ -99,10 +97,17 @@
               </table>
             </ais-hits>
 
-            <ais-pagination :show-first="false" :show-last="false" />
+            <ais-pagination
+              :show-first="false"
+              :show-previous="page !== 0"
+              :show-next="page !== nbPages - 1"
+              :show-last="false"
+            />
           </template>
 
-          <span v-if="hits.length === 0">No results 😥</span>
+          <div v-else>
+            No results found for query <strong>"{{ query }}"</strong>
+          </div>
         </template>
       </ais-state-results>
     </ais-instant-search>
@@ -111,42 +116,39 @@
 
 <script>
 import algoliasearch from 'algoliasearch/lite'
-import { history as historyRouter } from 'instantsearch.js/es/lib/routers'
-import { simple as simpleMapping } from 'instantsearch.js/es/lib/stateMappings'
+import { history } from 'instantsearch.js/es/lib/routers'
+import { simple } from 'instantsearch.js/es/lib/stateMappings'
 import 'instantsearch.css/themes/algolia-min.css'
 import ClipboardJS from 'clipboard'
 import ExternalLink from './ExternalLink'
+import CopyHash from './CopyHash'
 
 export default {
   components: {
-    ExternalLink
+    ExternalLink,
+    CopyHash
   },
   data: () => ({
+    indexName: 'scoop_apps',
     searchClient: algoliasearch(
       'F8ONSWSRN9',
       '134a8d4dd5935708368241431ab745c3'
     ),
     routing: {
-      router: historyRouter(),
-      stateMapping: simpleMapping()
+      router: history(),
+      stateMapping: simple()
     },
-    indexName: 'scoop_apps',
     clipboard: null,
     copyListener: e => {
-      if (e.target.getAttribute('data-clipboard-text')) {
+      if (e.target.matches('.clip')) {
         const saved = e.target.textContent
         e.target.textContent = 'Copied!'
         setTimeout(() => (e.target.textContent = saved), 1000)
       }
     }
   }),
-  methods: {
-    convert(original) {
-      return Array.isArray(original) ? original[0] : original
-    }
-  },
   mounted() {
-    this.clipboard = new ClipboardJS('[data-clipboard-text]')
+    this.clipboard = new ClipboardJS('.clip')
     document.addEventListener('click', this.copyListener)
   },
   beforeDestroy() {
@@ -157,11 +159,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.ais-SearchBox
-.ais-Hits
-  margin-bottom 1rem
-
-.command
+code.clip
   display block
   margin-top .5rem
   cursor pointer
