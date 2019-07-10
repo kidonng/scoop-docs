@@ -1,5 +1,9 @@
 # Intro
 
+::: tip
+This site is unofficial. Contents' copyright belongs to their author/owner.
+:::
+
 Scoop is a command-line installer for Windows inspired by [Homebrew](http://mxcl.github.io/homebrew/) and [sub](https://github.com/37signals/sub#readme).
 
 ## What does Scoop do?
