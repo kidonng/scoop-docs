@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "dev": "vuepress dev package/docs",
-    "build": "vuepress build package/docs",
+    "dev": "yarn --cwd package/docs dev",
+    "build": "yarn --cwd package/docs build",
     "now-build": "yarn build"
   },
   "devDependencies": {
