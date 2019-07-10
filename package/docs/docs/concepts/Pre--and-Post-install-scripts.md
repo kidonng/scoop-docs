@@ -22,7 +22,9 @@ These variables are available for use in `pre_install` / `post_install` scripts:
 | `$cfgpath`      | `~/.scoop`                                                                                                          | Path to Scoop configuration                 |
 | `$cfg`          | `{SCOOP_BRANCH, SCOOP_REPO, lastupdate}`                                                                            | Scoop configuration (powershell object)     |
 
-(_check the [`lib/install`](https://github.com/lukesampson/scoop/blob/master/lib/install.ps1) script for more details_)
+::: tip
+Check the [`lib/install`](https://github.com/lukesampson/scoop/blob/master/lib/install.ps1) script for more details.
+:::
 
 ## Functions
 

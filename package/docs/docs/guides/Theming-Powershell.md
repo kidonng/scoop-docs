@@ -29,7 +29,7 @@ scoop install pshazz
 If you install Pshazz and you already have an SSH key, you'll see a popup asking for your password.
 ![](https://github.com/lukesampson/scoop/raw/gh-pages/images/docs/askpass.png)
 
-There's [more info on setting up SSH with Scoop](https://github.com/lukesampson/scoop/wiki/SSH-on-Windows), if you're interested.
+There's [more info on setting up SSH with Scoop](./SSH-on-Windows.md), if you're interested.
 
 Now you should have a nicer looking command prompt, with some helpful Git and SSH enhancements. If you want to customize your prompt even more, check out the [Concfg](https://github.com/lukesampson/concfg) and [Pshazz](https://github.com/lukesampson/pshazz) projects on GitHub.
 

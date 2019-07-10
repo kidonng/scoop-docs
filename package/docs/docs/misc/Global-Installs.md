@@ -6,7 +6,9 @@ In some cases you might want to install an app system-wide so that it's accessib
 
 Global installs require admin permissions, because they install to \ProgramData\scoop, and set system environment variables. For this reason, this example uses the `sudo` command, which is a rough equivalent of the UNIX command to run a command with superuser privileges. You can install this by running:
 
-    scoop install sudo
+```powershell
+scoop install sudo
+```
 
 Otherwise, you can just open a normal Powershell console using Run As Administrator.
 
@@ -14,12 +16,18 @@ Otherwise, you can just open a normal Powershell console using Run As Administra
 
 To install an app:
 
-    sudo scoop install git --global
+```powershell
+sudo scoop install git --global
+```
 
-_Note: if you want the app to be available to the local system account, you will need to restart the system after you install your first app globally. This is because changes made to environment variables don't take affect for the local system account until you restart Windows (see [here](http://support.microsoft.com/kb/821761))._
+::: tip
+If you want the app to be available to the local system account, you will need to restart the system after you install your first app globally. This is because changes made to environment variables don't take affect for the local system account until you restart Windows (see [here](https://support.microsoft.com/kb/821761)).
+:::
 
 You can also use the short form for `--global`, `-g`.
 
 E.g. to update a globally installed app using the short form:
 
-    sudo scoop update git -g
+```powershell
+sudo scoop update git -g
+```

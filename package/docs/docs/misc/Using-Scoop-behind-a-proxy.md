@@ -11,7 +11,7 @@ These instructions are for people who
 
 ## Installation
 
-Normally, Scoop is installed with
+Normally, Scoop is installed with:
 
 ```powershell
 iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
@@ -19,7 +19,7 @@ iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
 
 If you're behind a proxy you might need to run one or more of these commands first:
 
-```
+```powershell
 # If you want to use a proxy that isn't already configured in Internet Options
 [net.webrequest]::defaultwebproxy = new-object net.webproxy "http://proxy.example.org:8080"
 
@@ -36,9 +36,7 @@ These commands will affect any web requests using `net.webclient` until the end 
 
 Once Scoop is installed, you can use `scoop config` to configure your proxy. Here's an excerpt from `scoop help config`:
 
----
-
-`scoop config proxy [username:password@]host:port`
+> `scoop config proxy [username:password@]host:port`
 
 By default, Scoop will use the proxy settings from Internet Options, but with anonymous authentication.
 
@@ -46,8 +44,6 @@ By default, Scoop will use the proxy settings from Internet Options, but with an
 - To use the system proxy settings configured in Internet Options, use `default` in place of `host:port`
 - An empty or unset value for proxy is equivalent to `default` (with no username or password)
 - To bypass the system proxy and connect directly, use `none` (with no username or password)
-
----
 
 ## Config examples
 
