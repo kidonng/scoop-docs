@@ -6,6 +6,6 @@ export default ({ Vue }) => {
   // https://github.com/algolia/algoliasearch-client-javascript/issues/691
   if (typeof process === 'undefined')
     window.process = {
-      env: { DEBUG: null }
+      env: { DEBUG: false }
     }
 }
