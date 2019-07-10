@@ -5766,6 +5766,11 @@ pretty-time@^1.1.0:
   resolved "https://registry.npm.taobao.org/pretty-time/download/pretty-time-1.1.0.tgz#ffb7429afabb8535c346a34e41873adf3d74dd0e"
   integrity sha1-/7dCmvq7hTXDRqNOQYc63z103Q4=
 
+prism-theme-one-dark@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/prism-theme-one-dark/download/prism-theme-one-dark-1.0.0.tgz#c973609196aed4d1f98f9786ad724cdb5937e3ae"
+  integrity sha1-yXNgkZau1NH5j5eGrXJM21k3464=
+
 prismjs@^1.13.0:
   version "1.16.0"
   resolved "https://registry.npm.taobao.org/prismjs/download/prismjs-1.16.0.tgz#406eb2c8aacb0f5f0f1167930cb83835d10a4308"

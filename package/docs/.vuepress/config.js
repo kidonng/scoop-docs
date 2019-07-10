@@ -14,6 +14,7 @@ module.exports = {
       apiKey: '4a251822a0aa04bde14c4499c3b17cb7',
       indexName: 'scoop-docs'
     },
+    // Won't show on Now built site
     lastUpdated: true,
     repo: 'kidonng/scoop-docs',
     docsDir: 'docs',
