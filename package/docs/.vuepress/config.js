@@ -17,16 +17,13 @@ module.exports = {
     // Won't show on Now built site
     lastUpdated: true,
     repo: 'kidonng/scoop-docs',
-    docsDir: 'docs',
+    docsDir: 'package/docs',
     editLinks: true
   },
-  plugins: [
-    [
-      '@vuepress/google-analytics',
-      {
-        ga: 'UA-140053908-4'
-      }
-    ]
-  ],
+  plugins: {
+    '@vuepress/google-analytics': { ga: 'UA-140053908-4' },
+    '@vuepress/plugin-back-to-top': true,
+    '@vuepress/pwa': { updatePopup: true }
+  },
   evergreen: true
 }
