@@ -112,6 +112,9 @@ const index = client.initIndex('scoop_apps')
 
       if (!url) app.architecture = architecture
 
+      if (app.bucket === 'ScoopInstaller/Main') app.main = true
+      else if (index <= known.length - 1) app.known = true
+
       apps.push(app)
     })
   )
