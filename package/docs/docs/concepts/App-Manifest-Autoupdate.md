@@ -10,7 +10,7 @@ Use `checkver.ps1` to query the current version of either a specific app or all 
 
 ### Querying current version
 
-Open a PowerShell/cmd, then `cd` into **scoop**'s root directory (`apps\scoop\current`) or the buckets repository directory and run the following commands.
+Open a PowerShell/cmd, then `cd` into **Scoop**'s root directory (`apps\scoop\current`) or the buckets repository directory and run the following commands.
 
 To query the current version of a specific app in the bucket, run:
 
@@ -72,8 +72,10 @@ scoop install bucket\<app>.json
 Simplest solution is to use an RegEx and it will match it to the source of `homepage`. Example: [go](https://github.com/ScoopInstaller/Main/blob/master/bucket/go.json)
 
 ```json
-"homepage": "<https://golang.org">,
-"checkver": "Build version go([\\d\\.]+)\\."
+{
+  "homepage": "<https://golang.org>",
+  "checkver": "Build version go([\\d\\.]+)\\."
+}
 ```
 
 If you're not familiar with RegEx or want to test if your RegEx matches on the right text you can use an online tool ([RegEx101](https://regex101.com/) or [RegExr](https://regexr.com/)).
@@ -81,10 +83,12 @@ If you're not familiar with RegEx or want to test if your RegEx matches on the r
 Use another url if the `homepage` doesn't contain the version. Example: [7zip](https://github.com/ScoopInstaller/Main/blob/master/bucket/7zip.json)
 
 ```json
-"homepage": "https://www.7-zip.org/",
-"checkver": {
+{
+  "homepage": "https://www.7-zip.org/",
+  "checkver": {
     "url": "https://www.7-zip.org/download.html",
     "regex": "Download 7-Zip ([\\d.]+)"
+  }
 }
 ```
 
@@ -93,9 +97,11 @@ Use another url if the `homepage` doesn't contain the version. Example: [7zip](h
 Use a JSON endpoint with [JSONPath expressions](https://goessner.net/articles/JsonPath/) to retrieve the version. Either dot-notation or bracket-notation can be used. Example: [mro](https://github.com/ScoopInstaller/Main/blob/master/bucket/mro.json)
 
 ```json
-"checkver": {
+{
+  "checkver": {
     "url": "https://mran.microsoft.com/assets/configurations/app.config.json",
     "jp": "$.latestMicrosoftRVersion"
+  }
 }
 ```
 
@@ -104,10 +110,12 @@ If you're not familiar with JSONPath or want to test if your JSONPath matches on
 There could be a JSONPath query in `checkver.jsonpath`, and so does RegEx ([sample reference](https://www.newtonsoft.com/json/help/html/RegexQuery.htm)). Example: [nuget](https://github.com/ScoopInstaller/Main/blob/master/bucket/nuget.json)
 
 ```json
-"checkver": {
+{
+  "checkver": {
     "url": "https://dist.nuget.org/index.json",
     "jp": "$..versions[?(@.displayName == 'nuget.exe - recommended latest')].version"
-    }
+  }
+}
 ```
 
 ### Using RegEx with JSONPath in `checkver`
@@ -115,10 +123,12 @@ There could be a JSONPath query in `checkver.jsonpath`, and so does RegEx ([samp
 If `checkver.regex` and `checkver.jsonpath` are all assigned, **scoop** use `checkver.jsonpath` to extract a string which `checkver.regex` is matched to to find the version. Example: [nwjs](https://github.com/ScoopInstaller/Main-extras/blob/master/bucket/nwjs.json)
 
 ```json
-"checkver": {
+{
+  "checkver": {
     "url": "https://nwjs.io/versions.json",
     "jsonpath": "$.stable",
     "regex": "v([\\d.]+)"
+  }
 }
 ```
 
@@ -127,26 +137,32 @@ If `checkver.regex` and `checkver.jsonpath` are all assigned, **scoop** use `che
 Use the latest app release on Github by setting `checkver` to `github` and the `homepage` to the repository URL. This will try to match the tag with `\/releases\/tag\/(?:v|V)?([\d.]+)`. _The app author has to use Github's release feature for this to work. Pre-releases will be ignored!_ Example: [nvm](https://github.com/ScoopInstaller/Main/blob/master/bucket/nvm.json)
 
 ```json
-"homepage": "https://github.com/coreybutler/nvm-windows",
-"checkver": "github"
+{
+  "homepage": "https://github.com/coreybutler/nvm-windows",
+  "checkver": "github"
+}
 ```
 
 Or use different urls for the homepage and repository. Example: [cmder](https://github.com/ScoopInstaller/Main/blob/master/bucket/cmder.json)
 
 ```json
-"homepage": "http://cmder.net",
-"checkver": {
+{
+  "homepage": "http://cmder.net",
+  "checkver": {
     "github": "https://github.com/cmderdev/cmder"
+  }
 }
 ```
 
 Use `checkver.reverse: true` to let `checkver.regex` match the last occurrence found (default is to match the first occurrence). Example: [x264](https://github.com/ScoopInstaller/Main/blob/master/bucket/x264.json)
 
 ```json
-"checkver": {
+{
+  "checkver": {
     "url": "https://download.videolan.org/pub/videolan/x264/binaries/win64/",
     "re": "x264-r(?<version>[\\d]+)-(?<commit>[a-fA-F0-9]{7}).exe",
     "reverse": true
+  }
 }
 ```
 
@@ -155,19 +171,23 @@ Use capture groups in `checkver.regex` will make [captured variables](#captured-
 This example will provide `$matchVersion` and `$matchShort` as variables (used in `autoupdate`). Example: [git](https://github.com/ScoopInstaller/Main/blob/master/bucket/git.json)
 
 ```json
-"checkver": {
+{
+  "checkver": {
     "url": "https://github.com/git-for-windows/git/releases/latest",
     "re": "v(?<version>[\\d\\w.]+)/PortableGit-(?<short>[\\d.]+).*\\.exe"
+  }
 }
 ```
 
 This exmple will provide `${1}, ${2}, ${3}` (used in `checkver.replace`) and `$matchSha` (used in `autoupdate`) as variables. Example: [pshazz](https://github.com/ScoopInstaller/Main/blob/master/bucket/pshazz.json)
 
 ```json
-"checkver": {
+{
+  "checkver": {
     "url": "https://github.com/lukesampson/pshazz/commits/master.atom",
     "re": "(\\d+)-(\\d+)-(\\d+)[\\S\\s]*?(?<sha>[0-9a-f]{40})",
     "replace": "0.${1}.${2}.${3}"
+  }
 }
 ```
 
@@ -192,16 +212,18 @@ For the autoupdate feature to work it needs a [`checkver`](#adding-checkver-to-a
 to find the latest version number.
 
 ```json
-"autoupdate": {
+{
+  "autoupdate": {
     "note": "Thanks for using autoupdate, please test your updates!",
     "architecture": {
-        "64bit": {
-            "url": "https://example.org/dl/example-v$version-x64.msi"
-        },
-        "32bit": {
-            "url": "https://example.org/dl/example-v$version-x86.msi"
-        }
+      "64bit": {
+        "url": "https://example.org/dl/example-v$version-x64.msi"
+      },
+      "32bit": {
+        "url": "https://example.org/dl/example-v$version-x86.msi"
+      }
     }
+  }
 }
 ```
 
@@ -210,66 +232,74 @@ Some example manifests using the `autoupdate` feature:
 - [nodejs](https://github.com/ScoopInstaller/Main/blob/master/bucket/nodejs.json)
 
 ```json
-"autoupdate": {
+{
+  "autoupdate": {
     "architecture": {
-        "64bit": {
-            "url": "https://nodejs.org/dist/v$version/node-v$version-win-x64.7z",
-            "extract_dir": "node-v$version-win-x64"
-        },
-        "32bit": {
-            "url": "https://nodejs.org/dist/v$version/node-v$version-win-x86.7z",
-            "extract_dir": "node-v$version-win-x86"
-        }
+      "64bit": {
+        "url": "https://nodejs.org/dist/v$version/node-v$version-win-x64.7z",
+        "extract_dir": "node-v$version-win-x64"
+      },
+      "32bit": {
+        "url": "https://nodejs.org/dist/v$version/node-v$version-win-x86.7z",
+        "extract_dir": "node-v$version-win-x86"
+      }
     },
     "hash": {
-        "url": "$baseurl/SHASUMS256.txt.asc"
+      "url": "$baseurl/SHASUMS256.txt.asc"
     }
+  }
 }
 ```
 
 - [php](https://github.com/ScoopInstaller/Main/blob/master/bucket/php.json)
 
 ```json
-"autoupdate": {
+{
+  "autoupdate": {
     "architecture": {
-        "64bit": {
-            "url": "https://windows.php.net/downloads/releases/php-$version-Win32-VC15-x64.zip"
-        },
-        "32bit": {
-            "url": "https://windows.php.net/downloads/releases/php-$version-Win32-VC15-x86.zip"
-        }
+      "64bit": {
+        "url": "https://windows.php.net/downloads/releases/php-$version-Win32-VC15-x64.zip"
+      },
+      "32bit": {
+        "url": "https://windows.php.net/downloads/releases/php-$version-Win32-VC15-x86.zip"
+      }
     },
     "hash": {
-        "url": "$baseurl/sha256sum.txt"
+      "url": "$baseurl/sha256sum.txt"
     }
+  }
 }
 ```
 
 - [nginx](https://github.com/ScoopInstaller/Main/blob/master/bucket/nginx.json)
 
 ```json
-"autoupdate": {
+{
+  "autoupdate": {
     "url": "https://nginx.org/download/nginx-$version.zip",
     "extract_dir": "nginx-$version"
+  }
 }
 ```
 
 - [imagemagick](https://github.com/ScoopInstaller/Main/blob/master/bucket/imagemagick.json)
 
 ```json
-"autoupdate": {
+{
+  "autoupdate": {
     "architecture": {
-        "64bit": {
-            "url": "https://www.imagemagick.org/download/binaries/ImageMagick-$version-portable-Q16-x64.zip"
-        },
-        "32bit": {
-            "url": "https://www.imagemagick.org/download/binaries/ImageMagick-$version-portable-Q16-x86.zip"
-        }
+      "64bit": {
+        "url": "https://www.imagemagick.org/download/binaries/ImageMagick-$version-portable-Q16-x64.zip"
+      },
+      "32bit": {
+        "url": "https://www.imagemagick.org/download/binaries/ImageMagick-$version-portable-Q16-x86.zip"
+      }
     },
     "hash": {
-        "mode": "rdf",
-        "url": "https://www.imagemagick.org/download/binaries/digest.rdf"
+      "mode": "rdf",
+      "url": "https://www.imagemagick.org/download/binaries/digest.rdf"
     }
+  }
 }
 ```
 
@@ -278,37 +308,41 @@ Some examples using the `autoupdate` feature with [captured variables](#captured
 - [openjdk](https://github.com/ScoopInstaller/Java/blob/master/openjdk.json)
 
 ```json
-"checkver": {
+{
+  "checkver": {
     "re": "/(?<type>early_access|GA)/(?<path>jdk(?<major>[\\d.]+)(?:.*)?/(?<build>[\\d]+)(?:/GPL|/binaries)?)/(?<file>openjdk-(?<version>[\\d.]+)(?<ea>-ea)?(?:\\+[\\d]+)?_windows-x64_bin.(zip|tar.gz))",
     "replace": "${version}-${build}${ea}"
-},
-"autoupdate": {
+  },
+  "autoupdate": {
     "architecture": {
-        "64bit": {
-            "url": "https://download.java.net/java/$matchType/$matchPath/$matchFile"
-        }
+      "64bit": {
+        "url": "https://download.java.net/java/$matchType/$matchPath/$matchFile"
+      }
     },
     "hash": {
-        "url": "$url.sha256"
+      "url": "$url.sha256"
     },
     "extract_dir": "jdk-$matchVersion"
+  }
 }
 ```
 
 - [mysql](https://github.com/ScoopInstaller/Main/blob/master/bucket/mysql.json)
 
 ```json
-"autoupdate": {
+{
+  "autoupdate": {
     "architecture": {
-        "64bit": {
-            "url": "https://dev.mysql.com/get/Downloads/MySQL-$majorVersion.$minorVersion/mysql-$version-winx64.zip",
-            "extract_dir": "mysql-$version-winx64",
-            "hash": {
-                "url": "https://dev.mysql.com/downloads/mysql/",
-                "find": "md5\">([A-Fa-f\\d]{32})"
-            }
+      "64bit": {
+        "url": "https://dev.mysql.com/get/Downloads/MySQL-$majorVersion.$minorVersion/mysql-$version-winx64.zip",
+        "extract_dir": "mysql-$version-winx64",
+        "hash": {
+          "url": "https://dev.mysql.com/downloads/mysql/",
+          "find": "md5\">([A-Fa-f\\d]{32})"
         }
+      }
     }
+  }
 }
 ```
 
@@ -345,40 +379,46 @@ Hash value can be directly extracted by the following method (`autoupdate.hash.m
 - Use [captured variables](#captured-variables). Example: [qemu](https://github.com/ScoopInstaller/Main/blob/master/bucket/qemu.json)
 
 ```json
-"checkver": {
+{
+  "checkver": {
     "re": "<strong>(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})</strong>: New QEMU installers \\((?<version>[\\d.a-z\\-]+)\\)"
-},
-"autoupdate": {
+  },
+  "autoupdate": {
     "architecture": {
-        "64bit": {
-            "url": "https://qemu.weilnetz.de/w64/qemu-w64-setup-$matchYear$matchMonth$matchDay.exe#/dl.7z",
-            "hash": {
-                "url": "https://qemu.weilnetz.de/w64/qemu-w64-setup-$matchYear$matchMonth$matchDay.sha512"
-            }
-        },
-        "32bit": {
-            "url": "https://qemu.weilnetz.de/w32/qemu-w32-setup-$matchYear$matchMonth$matchDay.exe#/dl.7z",
-            "hash": {
-                "url": "https://qemu.weilnetz.de/w32/qemu-w32-setup-$matchYear$matchMonth$matchDay.sha512"
-            }
+      "64bit": {
+        "url": "https://qemu.weilnetz.de/w64/qemu-w64-setup-$matchYear$matchMonth$matchDay.exe#/dl.7z",
+        "hash": {
+          "url": "https://qemu.weilnetz.de/w64/qemu-w64-setup-$matchYear$matchMonth$matchDay.sha512"
         }
+      },
+      "32bit": {
+        "url": "https://qemu.weilnetz.de/w32/qemu-w32-setup-$matchYear$matchMonth$matchDay.exe#/dl.7z",
+        "hash": {
+          "url": "https://qemu.weilnetz.de/w32/qemu-w32-setup-$matchYear$matchMonth$matchDay.sha512"
+        }
+      }
     }
+  }
 }
 ```
 
 - Use [version variables](#version-variables). Example: [julia](https://github.com/ScoopInstaller/Main/blob/master/julia.json)
 
 ```json
-"hash": {
+{
+  "hash": {
     "url": "https://julialang-s3.julialang.org/bin/checksums/julia-$version.sha256"
+  }
 }
 ```
 
 - Use [URL variables](#url-variables) and append suffix to it. Example: [apache](https://github.com/ScoopInstaller/Main/blob/master/apache.json)
 
 ```json
-"hash": {
+{
+  "hash": {
     "url": "$url_fossies.sha256"
+  }
 }
 ```
 
@@ -406,18 +446,22 @@ If built-in RegEx is not suitable, customized RegEx could be used to extract has
 - [curl](https://github.com/ScoopInstaller/Main/blob/master/bucket/curl.json)
 
 ```json
-"hash": {
+{
+  "hash": {
     "url": "$baseurl/hashes.txt",
     "find": "SHA256\\($basename\\)=\\s+([a-fA-F\\d]{64})"
+  }
 }
 ```
 
 - [python](https://github.com/ScoopInstaller/Main/blob/master/bucket/python.json)
 
 ```json
-"hash": {
+{
+  "hash": {
     "url": "https://www.python.org/downloads/release/python-$cleanVersion/",
     "find": "$basename[\\S\\s]+?$md5"
+  }
 }
 ```
 
@@ -441,17 +485,21 @@ For `autoupdate.url`s that match above patterns, hash mode is setted to `fosshub
 - [calibre](https://github.com/ScoopInstaller/Main/blob/master/bucket/curl.json)
 
 ```json
-"autoupdate": {
+{
+  "autoupdate": {
     "url": "https://www.fosshub.com/Calibre.html/calibre-portable-installer-$version.exe"
+  }
 }
 ```
 
 - [nsis](https://github.com/lukesampson/scoop-extras/blob/master/bucket/nsis.json)
 
 ```json
-"autoupdate": {
+{
+  "autoupdate": {
     "url": "https://downloads.sourceforge.net/project/nsis/NSIS%20$majorVersion/$version/nsis-$version.zip",
     "extract_dir": "nsis-$version"
+  }
 }
 ```
 
@@ -460,20 +508,24 @@ For `autoupdate.url`s that match above patterns, hash mode is setted to `fosshub
 For JSON file, use a JSON endpoint with [JSONPath expressions](https://goessner.net/articles/JsonPath/) to retrieve the hash. Either dot-notation or bracket-notation can be used. Example: [openssl](https://github.com/ScoopInstaller/Main/blob/master/bucket/openssl.json)
 
 ```json
-"hash": {
+{
+  "hash": {
     "mode": "json",
     "jp": "$.files.['$basename'].sha512",
     "url": "$baseurl/win32_openssl_hashes.json"
+  }
 }
 ```
 
 There could be a JSONPath query in `autoupdate.hash.jsonpath`, and so does RegEx ([sample reference](https://www.newtonsoft.com/json/help/html/RegexQuery.htm)). Example: [mro](https://github.com/ScoopInstaller/Main/blob/master/bucket/mro.json)
 
 ```json
-"hash": {
+{
+  "hash": {
     "mode": "json",
     "jsonpath": "$..versions[?(@.downloadText == '$basename')].sha256",
     "url": "https://mranapi.azurewebsites.net/api/download"
+  }
 }
 ```
 
@@ -482,9 +534,11 @@ There could be a JSONPath query in `autoupdate.hash.jsonpath`, and so does RegEx
 Use XPath to retrieve the hash from a XML file. Example: [googlechrome](https://github.com/h404bi/dorado/blob/master/bucket/googlechrome.json)
 
 ```json
-"hash": {
+{
+  "hash": {
     "url": "https://lab.skk.moe/chrome/api/chrome.min.xml",
     "xpath": "/chromechecker/stable64[version=\"$version\"]/sha256"
+  }
 }
 ```
 
@@ -493,9 +547,11 @@ Use XPath to retrieve the hash from a XML file. Example: [googlechrome](https://
 [Resource Description Framework (RDF)](https://www.w3.org/TR/rdf11-concepts/) is a framework for representing information in the Web. Hash value could be extracted from RDF file. Example: [imagemagick](https://github.com/ScoopInstaller/Main/blob/master/bucket/imagemagick.json)
 
 ```json
-"hash": {
+{
+  "hash": {
     "mode": "rdf",
     "url": "https://www.imagemagick.org/download/binaries/digest.rdf"
+  }
 }
 ```
 
@@ -504,8 +560,10 @@ Use XPath to retrieve the hash from a XML file. Example: [googlechrome](https://
 [Metalink](http://www.metalinker.org/) is an Internet standard that harnesses the speed and power of peer to peer networking and traditional downloads with a single click. For download URL that supported Metalink, hash value could be retrieved from download URL's header or a `.meta4` file. Example: [libreoffice-fresh](https://github.com/lukesampson/scoop-extras/blob/master/bucket/libreoffice-fresh.json)
 
 ```json
-"hash": {
+{
+  "hash": {
     "mode": "metalink"
+  }
 }
 ```
 

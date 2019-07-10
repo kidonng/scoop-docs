@@ -27,4 +27,4 @@ So once you ignore the bad points, what are you left with?
 - **Great language support for primitive types, arrays and hashes**
 - **The feeling of pride that comes from using an obscure shell**. Zsh? Fish? Pfft. Virtually _no-one_ uses PowerShell (not sure on the actual numbers there).
 
-Yes, you're stuck using the ancient and seemingly-forgotten Windows Console, but you can get that working fairly nicely with [a little customization](https://github.com/lukesampson/scoop/wiki/Theming-Powershell).
+Yes, you're stuck using the ancient and seemingly-forgotten Windows Console, but you can get that working fairly nicely with [a little customization](../guides/Theming-Powershell.md).

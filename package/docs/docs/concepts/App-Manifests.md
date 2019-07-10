@@ -71,14 +71,16 @@ In the above example, Scoop will download `program.exe` but save it as `dl.7z`, 
 - `suggest`: Display a message suggesting optional apps that provide complementary features. See [ant](https://github.com/ScoopInstaller/Main/blob/master/bucket/ant.json) for an example. \* `["Feature Name"] = [ "app1", "app2"... ]`<br>e.g. `"JDK": [ "extras/oraclejdk", "openjdk" ]`<br>
   If any of the apps suggested for the feature are already installed, the feature will be treated as 'fulfilled' and the user won't see any suggestions.
 
-## Undocumented Properties
+## Other Properties
 
-- `cookie`: only found [here](https://github.com/se35710/scoop-java/search?q=cookie&unscoped_q=cookie)
+- `cookie`: only found an usage [here](https://github.com/se35710/scoop-java/search?q=cookie&unscoped_q=cookie).
 
 ## Deprecated Properties
 
 - `_comment`: A one-line string, or array of strings, containing comments. Use `##` instead.
-- `msi` _(deprecated)_: Settings for running an MSI installer<br>
+- `msi` _(deprecated)_: Settings for running an MSI installer
+
   **This property is deprecated and support will be removed in a future version of Scoop.** _The new method is to treat .msi files just like a .zip and extract the files from it without running the full install. You can use the new method simply by not including this `msi` property in your manifest._
-  * `code` *required*: the product code GUID for the MSI installer
-  * `silent`: should normally be `true` to try to install without popups and UAC prompts
+
+  - `code` _required_: the product code GUID for the MSI installer
+  - `silent`: should normally be `true` to try to install without popups and UAC prompts

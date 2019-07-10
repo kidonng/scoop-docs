@@ -47,4 +47,6 @@ extension=php_sqlite3.dll
 extension=php_tidy.dll
 ```
 
-_Tip: You can use git to store your configurations._
+::: tip
+You can use git to store your configurations.
+:::
