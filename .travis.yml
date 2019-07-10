@@ -5,4 +5,4 @@ cache: yarn
 
 if: branch = master
 
-script: yarn index
+script: node package/index/script.js
