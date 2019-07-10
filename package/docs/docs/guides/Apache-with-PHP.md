@@ -2,44 +2,58 @@
 
 Install PHP and Apache:
 
-    scoop install php apache
+```powershell
+scoop install php apache
+```
 
 Register the PHP handler with Apache:
 
-    iex (new-object net.webclient).downloadstring('https://gist.githubusercontent.com/nilkesede/c98a275b80b6d373131df82eaba96c63/raw/apache-php-init.ps1')
+```powershell
+iex (new-object net.webclient).downloadstring('https://gist.githubusercontent.com/nilkesede/c98a275b80b6d373131df82eaba96c63/raw/apache-php-init.ps1')
+```
 
 **To start Apache on the command line**, run:
 
-    httpd
+```powershell
+httpd
+```
 
 Apache will continue running until you press `Ctrl-C` to terminate it.
 
-If you open http://localhost in your browser, you should see a page saying that &ldquo;It works!&rdquo;.
+If you open `http://localhost` in your browser, you should see a page saying that “It works!”.
 
 ## The document root directory
 
 Scoop configures Apache to serve web pages from the htdocs directory inside the Scoop install directory.
 
 You can get to this directory by running:
-  
- pushd "\$(scoop which httpd | split-path)\..\htdocs"
 
-If you would like to serve documents from somewhere else, you need to change the DocumentRoot inside the conf/httpd.conf file. You can find httpd.conf at
+```powershell
+pushd "\$(scoop which httpd | split-path)\..\htdocs"
+```
 
-    "$(scoop which httpd | split-path)\..\conf\httpd.conf"
+If you would like to serve documents from somewhere else, you need to change the DocumentRoot inside the `conf/httpd.conf` file. You can find `httpd.conf` at
+
+```powershell
+"$(scoop which httpd | split-path)\..\conf\httpd.conf"
+```
 
 ## Installing Apache as a service
 
 Run:
 
-    sudo httpd -k install -n apache
-    sudo net start apache
+```powershell
+sudo httpd -k install -n apache
+sudo net start apache
+```
 
 If you don't have `sudo`, you can install it with `scoop install sudo`.
 
 To uninstall the Apache service
 
-    sudo net stop apache
-    sudo httpd -k uninstall -n apache
+```powershell
+sudo net stop apache
+sudo httpd -k uninstall -n apache
+```
 
-For more information, see [Using Apache HTTP Server on Windows](http://httpd.apache.org/docs/current/platform/windows.html).
+For more information, see [Using Apache HTTP Server on Windows](https://httpd.apache.org/docs/current/platform/windows.html).

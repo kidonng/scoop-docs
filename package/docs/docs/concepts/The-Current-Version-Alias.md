@@ -1,4 +1,4 @@
-# The 'Current' Version Alias
+# The "Current" Version Alias
 
 The `current` directory for apps is a special alias directory which points to the currently installed version of that app.
 
@@ -8,7 +8,7 @@ It allows path references to remain the same across app updates, since paths ref
 
 For example, if I run `ls ~/scoop/apps/git` now, I see this output:
 
-```powershell
+```
 $ ls ~/scoop/apps/git
 
     Directory: C:\Users\luke\scoop\apps\git

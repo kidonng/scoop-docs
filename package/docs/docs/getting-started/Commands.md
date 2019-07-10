@@ -4,11 +4,15 @@ Information on Scoop's commands is built-in. If you use Git you should find the 
 
 To see a list of commands, run:
 
-    scoop help
+```powershell
+scoop help
+```
 
 To see help on a specific command, run:
 
-    scoop help <command>
+```powershell
+scoop help <command>
+```
 
 The current commands are (output from `scoop help`):
 

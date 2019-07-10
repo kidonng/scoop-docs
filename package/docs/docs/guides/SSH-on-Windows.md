@@ -2,27 +2,35 @@
 
 This guide will help you use SSH on Windows to connect to an SSH server. You'll get a similar experience to how SSH works on Linux on MacOS. No PuTTy or GUIs required, and you can even set it up so you don't have to re-type your private key password every time you connect.
 
-This guide assumes you have [installed Scoop](https://github.com/lukesampson/scoop/wiki/Quick-Start) and have a Linux machine running an SSH server—we'll need something to connect to. It also assumes that you're basically familiar with [what SSH is all about](http://en.wikipedia.org/wiki/Secure_Shell) and just want to know how to use it on Windows.
+This guide assumes you have [installed Scoop](../getting-started/Quick-Start.md) and have a Linux machine running an SSH server—we'll need something to connect to. It also assumes that you're basically familiar with [what SSH is all about](http://en.wikipedia.org/wiki/Secure_Shell) and just want to know how to use it on Windows.
 
 ## Install
 
-> If you're using Windows 10 version 1803 (April 2018) or above, a built-in win32-openssh has been installed in your system and been added to the system PATH. You can run `scoop which ssh` to locate the ssh that you're using, and you can chose to skip external openssh installation.
+::: tip
+If you're using Windows 10 version 1803 (April 2018) or above, a built-in win32-openssh has been installed in your system and been added to the system PATH. You can run `scoop which ssh` to locate the ssh that you're using, and you can chose to skip external openssh installation.
+:::
 
 First, install SSH from a Powershell prompt:
 
-    scoop install openssh
+```powershell
+scoop install openssh
+```
 
 P.S. if you want to use ssh with git, you may prefer to install `git-with-openssh` by `scoop install git-with-openssh`
 
 Or, for the latest version of openssh:
 
-    scoop install win32-openssh
+```powershell
+scoop install win32-openssh
+```
 
 ## Connect with SSH using a password
 
 Say you have a web server running at `example.org`. You should now be able to connect to it with
 
-    ssh username@example.org
+```powershell
+ssh username@example.org
+```
 
 Once you enter your password, you should be logged in to the remote server. Pat yourself on the back, you've connected with SSH from Windows! Easy, right?
 
@@ -30,7 +38,7 @@ Passwords are fine, but for extra security we can use a password-protected key i
 
 ## Create a key for authentication
 
-If you already have a private key (e.g. ~/.ssh/id_rsa) you can skip this step. If not, create a new private key like this (type text is in **bold**):
+If you already have a private key (e.g. `~/.ssh/id_rsa`) you can skip this step. If not, create a new private key like this (type text is in **bold**):
 
 ```
 PS> ssh-keygen
@@ -62,11 +70,15 @@ If you used the default file as above, your private key will be created at `~/.s
 
 Before we can connect to our server (e.g. `example.org`) with our SSH key, we need to authorize the key we'll be using by copying our public key to the remote server:
 
-    cat ~/.ssh/id_rsa.pub | ssh username@example.org 'mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys'
+```powershell
+cat ~/.ssh/id_rsa.pub | ssh username@example.org 'mkdir -p ~/.ssh; cat >> ~/.ssh/authorized_keys'
+```
 
 Now try connecting again:
 
-    ssh username@example.org
+```powershell
+ssh username@example.org
+```
 
 This time, instead of being asked for your `username` password, you should be asked for the password for your private key.
 
@@ -76,23 +88,31 @@ Now, every time you restart your PC and open a console session you need to start
 
 You can use [Pshazz](https://github.com/lukesampson/pshazz) to automatically start the SSH Agent and cache your the key passphrase.
 
-    scoop install pshazz
+```powershell
+scoop install pshazz
+```
 
 Then Pshazz will start the SSH Agent automatically and add your keys. You'll be asked for the key passphrase for the first time. Try connecting over SSH:
 
-    ssh username@example.org
+```powershell
+ssh username@example.org
+```
 
 If everything went according to plan, you should be logged in without needing to enter your password. Hooray!
 
 To see what happened, type:
 
-    ssh-add -l
+```powershell
+ssh-add -l
+```
 
 The thumbprint for your SSH key should be shown. `ssh-agent` will try using this key whenever you use SSH now.
 
 What's more, Pshazz support tab completion on `ssh` command:
 
-    ssh <TAB>
+```powershell
+ssh <TAB>
+```
 
 You will see all hosts in your `~/.ssh/config`.
 
