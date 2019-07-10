@@ -1,6 +1,6 @@
 <template>
   <a :href="convertedHref" target="_blank" rel="noopener noreferrer">
-    {{ text }}
+    <slot />
     <OutboundLink />
   </a>
 </template>
@@ -10,10 +10,6 @@ export default {
   props: {
     href: {
       type: String | Array,
-      required: true
-    },
-    text: {
-      type: String,
       required: true
     }
   },

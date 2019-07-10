@@ -14,7 +14,7 @@ And Scoop supports adding other buckets. Anyone can set up their own bucket with
 
 ## Known buckets
 
-There is a list of known buckets by the community, to see the list of known buckets execute:
+There is [a list of known buckets](https://github.com/lukesampson/scoop/blob/master/buckets.json) by the community, to see the list of known buckets execute:
 
 ```powershell
 scoop bucket known
