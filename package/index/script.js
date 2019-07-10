@@ -7,7 +7,7 @@ const client = algoliasearch('F8ONSWSRN9', process.env.ALGOLIA_APIKEY)
 const index = client.initIndex('scoop_apps')
 
 ;(async () => {
-  const known = (await graphql(`
+  let known = (await graphql(`
     {
       repository(owner: "lukesampson", name: "scoop") {
         object(expression: "master:buckets.json") {
@@ -18,8 +18,10 @@ const index = client.initIndex('scoop_apps')
       }
     }
   `)).repository.object.text
+  known = Object.values(JSON.parse(known))
+
   let buckets = [
-    ...Object.values(JSON.parse(known)),
+    ...known,
     // Some most starred buckets (https://github.com/rasa/scoop-directory/blob/master/by-stars.md)
     'https://github.com/Ash258/scoop-Ash258',
     'https://github.com/h404bi/dorado',
