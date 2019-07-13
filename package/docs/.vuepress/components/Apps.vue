@@ -73,23 +73,29 @@
                       </code>
                     </td>
                     <td>
-                      <template v-if="item.url">
-                        <ExternalLink :href="item.url">Download</ExternalLink>
-                        <CopyHash :hash="item.hash" />
-                      </template>
-                      <ul v-else>
-                        <li v-if="item.architecture['64bit']">
-                          <ExternalLink :href="item.architecture['64bit'].url">
-                            64bit
-                          </ExternalLink>
-                          <CopyHash :hash="item.architecture['64bit'].hash" />
+                      <ul>
+                        <li v-if="item.url">
+                          <ExternalLink :href="item.url">Download</ExternalLink>
+                          <CopyHash :hash="item.hash" />
                         </li>
-                        <li v-if="item.architecture['32bit']">
-                          <ExternalLink :href="item.architecture['32bit'].url">
-                            32bit
-                          </ExternalLink>
-                          <CopyHash :hash="item.architecture['32bit'].hash" />
-                        </li>
+                        <template v-else>
+                          <li v-if="item.architecture['64bit']">
+                            <ExternalLink
+                              :href="item.architecture['64bit'].url"
+                            >
+                              64bit
+                            </ExternalLink>
+                            <CopyHash :hash="item.architecture['64bit'].hash" />
+                          </li>
+                          <li v-if="item.architecture['32bit']">
+                            <ExternalLink
+                              :href="item.architecture['32bit'].url"
+                            >
+                              32bit
+                            </ExternalLink>
+                            <CopyHash :hash="item.architecture['32bit'].hash" />
+                          </li>
+                        </template>
                       </ul>
                     </td>
                   </tr>
