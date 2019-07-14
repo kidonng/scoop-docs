@@ -121,6 +121,7 @@
 </template>
 
 <script>
+import { onMounted, onUnmounted } from 'vue-function-api'
 import algoliasearch from 'algoliasearch/lite'
 import { history } from 'instantsearch.js/es/lib/routers'
 import { simple } from 'instantsearch.js/es/lib/stateMappings'
@@ -134,32 +135,36 @@ export default {
     ExternalLink,
     CopyHash
   },
-  data: () => ({
-    indexName: 'scoop_apps',
-    searchClient: algoliasearch(
-      'F8ONSWSRN9',
-      '134a8d4dd5935708368241431ab745c3'
-    ),
-    routing: {
-      router: history(),
-      stateMapping: simple()
-    },
-    clipboard: null,
-    copyListener: e => {
+  setup() {
+    let clipboard
+    const copyListener = e => {
       if (e.target.matches('.clip')) {
         const saved = e.target.textContent
         e.target.textContent = 'Copied!'
         setTimeout(() => (e.target.textContent = saved), 1000)
       }
     }
-  }),
-  mounted() {
-    this.clipboard = new ClipboardJS('.clip')
-    document.addEventListener('click', this.copyListener)
-  },
-  beforeDestroy() {
-    this.clipboard.destroy()
-    document.removeEventListener('click', this.copyListener)
+
+    onMounted(() => {
+      clipboard = new ClipboardJS('.clip')
+      document.addEventListener('click', copyListener)
+    })
+    onUnmounted(() => {
+      clipboard.destroy()
+      document.removeEventListener('click', copyListener)
+    })
+
+    return {
+      indexName: 'scoop_apps',
+      searchClient: algoliasearch(
+        'F8ONSWSRN9',
+        '134a8d4dd5935708368241431ab745c3'
+      ),
+      routing: {
+        router: history(),
+        stateMapping: simple()
+      }
+    }
   }
 }
 </script>
