@@ -12,19 +12,18 @@ export default {
       required: true
     }
   },
-  computed: {
-    convertedHash() {
-      return Array.isArray(this.hash) ? this.hash[0] : this.hash
-    },
-    parsedHash() {
-      return this.convertedHash.includes(':')
-        ? this.convertedHash.split(':')[1]
-        : this.convertedHash
-    },
-    type() {
-      return this.convertedHash.includes(':')
-        ? this.convertedHash.split(':')[0].toUpperCase()
-        : 'SHA256'
+  setup(props) {
+    const convertedHash = Array.isArray(props.hash) ? props.hash[0] : props.hash
+    const parsedHash = convertedHash.includes(':')
+      ? convertedHash.split(':')[1]
+      : convertedHash
+    const type = convertedHash.includes(':')
+      ? convertedHash.split(':')[0].toUpperCase()
+      : 'SHA256'
+
+    return {
+      parsedHash,
+      type
     }
   }
 }
