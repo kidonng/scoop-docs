@@ -13,9 +13,9 @@ export default {
       required: true
     }
   },
-  computed: {
-    convertedHref() {
-      return Array.isArray(this.href) ? this.href[0] : this.href
+  setup(props) {
+    return {
+      convertedHref: Array.isArray(props.href) ? props.href[0] : props.href
     }
   }
 }
