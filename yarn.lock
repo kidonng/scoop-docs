@@ -787,10 +787,10 @@
     once "^1.4.0"
     universal-user-agent "^2.1.0"
 
-"@types/algoliasearch@^3.30.12":
-  version "3.30.12"
-  resolved "https://registry.npm.taobao.org/@types/algoliasearch/download/@types/algoliasearch-3.30.12.tgz#3270ba642107f00cd743c29b8cae30c92a043dba"
-  integrity sha1-MnC6ZCEH8AzXQ8KbjK4wySoEPbo=
+"@types/algoliasearch@^3.30.14":
+  version "3.30.14"
+  resolved "https://registry.yarnpkg.com/@types/algoliasearch/-/algoliasearch-3.30.14.tgz#2166c0fedfa029a4be0fd80e5b35b4eb2d99731e"
+  integrity sha512-GfUz6Cb7BXSyR/mQchUVy4Y6TNbho/0NrdqDtfSENJaBI9+miD00xowISIsidDJTonjQIq0tN7f/+OQBVBM1Cw==
 
 "@types/events@*":
   version "3.0.0"
@@ -7112,7 +7112,7 @@ trim-right@^1.0.1:
   resolved "https://registry.npm.taobao.org/trim-right/download/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
   integrity sha1-yy4SAwZ+DI3h9hQJS5/kVwTqYAM=
 
-tslib@^1.9.0:
+tslib@^1.9.0, tslib@^1.9.3:
   version "1.10.0"
   resolved "https://registry.npm.taobao.org/tslib/download/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha1-w8GflZc/sKYpc/sJ2Q2WHuQ+XIo=
@@ -7374,6 +7374,13 @@ vm-browserify@^1.0.1:
   version "1.1.0"
   resolved "https://registry.npm.taobao.org/vm-browserify/download/vm-browserify-1.1.0.tgz#bd76d6a23323e2ca8ffa12028dc04559c75f9019"
   integrity sha1-vXbWojMj4sqP+hICjcBFWcdfkBk=
+
+vue-function-api@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/vue-function-api/-/vue-function-api-2.0.6.tgz#d3fc7a02ce9599d0af3869fbc76a43d88aeace24"
+  integrity sha512-iOS/PYLFrpnX1PzmC30IZMmfB/+94D4BRGkoGHxquvuJjlHUAbuQ9GpVVExkWpdBrf1wv/YqN89pfbxhmnMa1Q==
+  dependencies:
+    tslib "^1.9.3"
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.3"
