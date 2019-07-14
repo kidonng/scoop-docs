@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@octokit/graphql": "^2.1.3",
+    "@octokit/graphql": "^3.0.1",
     "algoliasearch": "^3.33.0"
   },
   "devDependencies": {
