@@ -21,6 +21,6 @@
     "vuepress": "^1.0.2"
   },
   "devDependencies": {
-    "@types/algoliasearch": "^3.30.12"
+    "@types/algoliasearch": "^3.30.14"
   }
 }
