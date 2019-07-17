@@ -10,7 +10,7 @@ This will let you know what's going to happen and ask if you're sure—just type
 
 This command will delete the `~/scoop/persist` folder.
 
-### Broken Install
+## Broken Install
 
 If you delete `~/scoop` you should be able to reinstall. To do this, run this in Powershell:
 

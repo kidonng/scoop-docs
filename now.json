@@ -4,12 +4,12 @@
     {
       "src": "package.json",
       "use": "@now/static-build",
-      "config": { "distDir": "package/docs/.vuepress/dist" }
+      "config": { "distDir": "packages/docs/.vuepress/dist" }
     }
   ],
   "routes": [
     {
-      "src": "^/assets/.*",
+      "src": "/assets/.*",
       "headers": { "cache-control": "max-age=31536000, immutable" }
     },
     { "handle": "filesystem" },
