@@ -2,10 +2,6 @@
   "name": "scoop-docs",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "vuepress dev .",
-    "build": "vuepress build ."
-  },
   "dependencies": {
     "@vuepress/plugin-back-to-top": "^1.0.2",
     "@vuepress/plugin-google-analytics": "^1.0.2",
