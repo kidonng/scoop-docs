@@ -3,4 +3,4 @@ language: node_js
 node_js: lts/*
 cache: yarn
 
-script: node package/index/apps.js
+script: yarn index
