@@ -11,6 +11,8 @@ export default ({ Vue, router }) => {
       env: { DEBUG: false }
     }
 
+  // Handle DocSearch links
+  // Pending: https://github.com/vuejs/vuepress/pull/1706
   document.addEventListener('click', e => {
     const target = e.target.closest('.algolia-docsearch-suggestion')
     if (target) {
