@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "dev": "yarn --cwd packages/docs dev",
-    "build": "yarn --cwd packages/docs build",
+    "dev": "vuepress dev packages/docs",
+    "build": "vuepress build packages/docs",
     "index": "node packages/index/apps.js",
     "now-build": "yarn build"
   },
