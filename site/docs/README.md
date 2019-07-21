@@ -28,6 +28,6 @@ scoop install python ruby go perl
 
 If you've built software that you'd like others to use, Scoop is an alternative to building an installer (e.g. MSI or InnoSetup) — you just need to zip your program and provide a JSON manifest that describes how to install it.
 
-## Demo
+## Video Demo
 
 <iframe src="https://www.youtube.com/embed/a85QLUJ0Wbs?rel=0" frameborder="0" allowfullscreen></iframe>

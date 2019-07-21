@@ -31,7 +31,7 @@ Enter same passphrase again: <b>[and once more]</b>
 ...
 ```
 
-Then [add your SSH key to GitHub](https://help.github.com/articles/generating-ssh-keys#step-3-add-your-ssh-key-to-github).
+Then [add your SSH key to GitHub](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account).
 
 ## Use `Pshazz` to remember your password
 
