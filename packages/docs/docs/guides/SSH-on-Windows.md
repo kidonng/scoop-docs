@@ -7,10 +7,10 @@ This guide assumes you have [installed Scoop](../getting-started/Quick-Start.md)
 ## Install
 
 ::: tip
-If you're using Windows 10 version 1803 (April 2018) or above, a built-in win32-openssh has been installed in your system and been added to the system PATH. You can run `scoop which ssh` to locate the ssh that you're using, and you can chose to skip external openssh installation.
+If you're using Windows 10 version 1803 (April 2018) or above, a built-in `win32-openssh` has been installed in your system and been added to the system PATH. You can run `scoop which ssh` to locate the ssh that you're using, and you can chose to skip external OpenSSH installation.
 :::
 
-First, install SSH from a Powershell prompt:
+First, install SSH from a PowerShell prompt:
 
 ```powershell
 scoop install openssh
@@ -18,7 +18,7 @@ scoop install openssh
 
 P.S. if you want to use ssh with git, you may prefer to install `git-with-openssh` by `scoop install git-with-openssh`
 
-Or, for the latest version of openssh:
+Or, for the latest version of OpenSSH:
 
 ```powershell
 scoop install win32-openssh
@@ -82,17 +82,17 @@ ssh username@example.org
 
 This time, instead of being asked for your `username` password, you should be asked for the password for your private key.
 
-## Better SSH experience with Pshazz
+## Better SSH experience with `Pshazz`
 
 Now, every time you restart your PC and open a console session you need to start the SSH Agent manually, and every time you connect with `ssh username@example.org` you'll be asked for the private key password.
 
-You can use [Pshazz](https://github.com/lukesampson/pshazz) to automatically start the SSH Agent and cache your the key passphrase.
+You can use [`Pshazz`](https://github.com/lukesampson/pshazz) to automatically start the SSH Agent and cache your the key passphrase.
 
 ```powershell
 scoop install pshazz
 ```
 
-Then Pshazz will start the SSH Agent automatically and add your keys. You'll be asked for the key passphrase for the first time. Try connecting over SSH:
+Then `Pshazz` will start the SSH Agent automatically and add your keys. You'll be asked for the key passphrase for the first time. Try connecting over SSH:
 
 ```powershell
 ssh username@example.org
@@ -108,7 +108,7 @@ ssh-add -l
 
 The thumbprint for your SSH key should be shown. `ssh-agent` will try using this key whenever you use SSH now.
 
-What's more, Pshazz support tab completion on `ssh` command:
+What's more, `Pshazz` support tab completion on `ssh` command:
 
 ```powershell
 ssh <TAB>
@@ -116,7 +116,7 @@ ssh <TAB>
 
 You will see all hosts in your `~/.ssh/config`.
 
-You might notice that your SSH sessions are timing out. To prevent this I like to add a ServerAliveInterval to my ~/.ssh/config (you might need to create this file if it doesn't exist):
+You might notice that your SSH sessions are timing out. To prevent this I like to add a ServerAliveInterval to my `~/.ssh/config` (you might need to create this file if it doesn't exist):
 
 ```
 Host *

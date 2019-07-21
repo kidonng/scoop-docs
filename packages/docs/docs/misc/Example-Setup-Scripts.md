@@ -2,7 +2,7 @@
 
 Here are some example "get-all-my-stuff" scripts.
 
-It's assumed that you have Powershell 5 and you've already installed Scoop, e.g.
+It's assumed that you have PowerShell 5 and you've already installed Scoop, e.g.
 
 ```powershell
 iex (new-object net.webclient).downloadstring('https://get.scoop.sh')

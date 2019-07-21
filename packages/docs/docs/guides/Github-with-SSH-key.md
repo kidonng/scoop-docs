@@ -4,7 +4,7 @@
 Based on [this guide from GitHub](https://help.github.com/articles/generating-ssh-keys#platform-windows).
 :::
 
-Git for Windows comes with a "Git Bash" that gives you good Git functionality over SSH. But what if you want to use Powershell instead of Bash? This guide shows you how to do just that, **without needing to re-type your password each time you connect**.
+Git for Windows comes with a **Git Bash** that gives you good Git functionality over SSH. But what if you want to use PowerShell instead of Bash? This guide shows you how to do just that, **without needing to re-type your password each time you connect**.
 
 This guide uses Github as an example, but the same principals apply for any SSH-accessible Git repo.
 
@@ -33,9 +33,9 @@ Enter same passphrase again: <b>[and once more]</b>
 
 Then [add your SSH key to GitHub](https://help.github.com/articles/generating-ssh-keys#step-3-add-your-ssh-key-to-github).
 
-## Use Pshazz to remember your password
+## Use `Pshazz` to remember your password
 
-Pshazz includes a plugin for SSH that can save your SSH key password in Windows Credential Manager so you don't need to re-type it every time you push to your Github repo. Install it like this:
+`Pshazz` includes a plugin for SSH that can save your SSH key password in Windows Credential Manager so you don't need to re-type it every time you push to your Github repo. Install it like this:
 
 ```powershell
 scoop install pshazz
@@ -47,7 +47,7 @@ And you can set up git client to store your GitHub access token to Windows Crede
 git config --global credential.helper manager
 ```
 
-You should see a popup asking for your SSH key password: enter it and check the box to save your password. Back in your Powershell session, you should see an `Identity Added` message. Whenever you start a Powershell session from now on, Pshazz will make sure the `ssh-agent` is running and load your private key using your saved password.
+You should see a popup asking for your SSH key password: enter it and check the box to save your password. Back in your PowerShell session, you should see an `Identity Added` message. Whenever you start a PowerShell session from now on, `Pshazz` will make sure the `ssh-agent` is running and load your private key using your saved password.
 
 ## Test it out
 

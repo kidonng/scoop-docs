@@ -24,7 +24,7 @@ If you open `http://localhost` in your browser, you should see a page saying tha
 
 ## The document root directory
 
-Scoop configures Apache to serve web pages from the htdocs directory inside the Scoop install directory.
+Scoop configures Apache to serve web pages from the `htdocs` directory inside the Scoop install directory.
 
 You can get to this directory by running:
 
