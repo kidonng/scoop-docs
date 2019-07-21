@@ -1,6 +1,6 @@
 # Autoupdate
 
-Auto Update is a tool for package maintainers. It automatically checks for new versions of an app and updates the manifest accordingly. It helps to eliminate much of the tedium of updating manifests, as well as reducing the risk of human error while doing so.
+**Auto Update** is a tool for package maintainers. It automatically checks for new versions of an app and updates the manifest accordingly. It helps to eliminate much of the tedium of updating manifests, as well as reducing the risk of human error while doing so.
 
 Here you will find an in-depth explanation of how the `autoupdate` part of an app manifest works.
 
@@ -10,25 +10,25 @@ Use `checkver.ps1` to query the current version of either a specific app or all 
 
 ### Querying current version
 
-Open a PowerShell/cmd, then `cd` into **Scoop**'s root directory (`apps\scoop\current`) or the buckets repository directory and run the following commands.
+Open a PowerShell/CMD console, then `cd` into Scoop's root directory (`apps\scoop\current`) or the buckets repository directory and run the following commands:
 
-To query the current version of a specific app in the bucket, run:
+- To query the current version of a specific app in the bucket, run:
 
-```powershell
-.\bin\checkver.ps1 <app>
-# or .\bin\checkver.ps1 -App <app>
-```
+  ```powershell
+  .\bin\checkver.ps1 <app>
+  # or .\bin\checkver.ps1 -App <app>
+  ```
 
-To query the current version of all apps in the bucket, run:
+- To query the current version of all apps in the bucket, run:
 
-```powershell
-.\bin\checkver.ps1 *
-# or .\bin\checkver.ps1 -App *
-```
+  ```powershell
+  .\bin\checkver.ps1 *
+  # or .\bin\checkver.ps1 -App *
+  ```
 
 ### Updating manifest
 
-In the output of `checkver.ps1`, you can see if an outdated app has autoupdate available. If so, you can run the following command to automatically update the respective app's manifest (using `*` will update all apps)
+In the output of `checkver.ps1`, you can see if an outdated app has autoupdate available. If so, you can run the following command to automatically update the respective app's manifest (use `*` to update all apps)
 
 ```powershell
 .\bin\checkver.ps1 <app> -u
@@ -571,7 +571,7 @@ Use XPath to retrieve the hash from a XML file. Example: [googlechrome](https://
 
 All the properties can be set globally for all architectures or for each architecture separately
 
-- `mode`: "string|enum".
+- `mode`: "String | Enum".
   - **`extract`**: Extract from a plain text file or webpage by RegEx (Default, can be omitted)
   - `json`: Extract from a JSON file by JSONPath
   - `xpath`: Extract from a XML file by XPath
@@ -580,25 +580,25 @@ All the properties can be set globally for all architectures or for each archite
   - `fosshub`: _Automatic_. Predefined for FossHub
   - `sourceforge`: _Automatic_. Predefined for SourceForge
   - `download`: Downloads the app file and hash it locally (Fallback)
-- `url`: "uri". URL template for downloading RDF/JSON files or extracting hashes
+- `url`: "Uri". URL template for downloading RDF/JSON files or extracting hashes
   - Supports [captured variables](#captured-variables)
   - Supports [version variables](#version-variables)
   - Supports [URL variables](#url-variables)
-- `regex|find`: "regex". RegEx expression to extract the hash
+- `regex|find`: "Regex". RegEx expression to extract the hash
   - Defaults: `^([a-fA-F0-9]+)$` and `([a-fA-F0-9]{32,128})[\x20\t]+.*$basename(?:[\x20\t]+\d+)?`
   - Supports [captured variables](#captured-variables)
   - Supports [version Variables](#version-variables)
   - Supports [URL variables](#url-variables)
   - Supports [hash variables](#hash-variables)
-- `jsonpath|jp`: "jsonpath". JSONPath expression to extract the hash
+- `jsonpath|jp`: "JSONPath". JSONPath expression to extract the hash
   - Supports [captured variables](#captured-variables)
   - Supports [version Variables](#version-variables)
   - Supports [URL variables](#url-variables)
-- `xpath`: "string". XPath expression to extract the hash
+- `xpath`: "String". XPath expression to extract the hash
   - Supports [captured variables](#captured-variables)
   - Supports [version Variables](#version-variables)
   - Supports [URL variables](#url-variables)
-- _`type`: "string|enum". Deprecated, hash type is determined automatically_
+- _`type`: "String | Enum". Deprecated. Hash type is determined automatically_
 
 ## Internal substitutable variables
 
@@ -625,7 +625,7 @@ All the properties can be set globally for all architectures or for each archite
   - `$minorVersion`: `7`
   - `$patchVersion`: `1`
   - `$buildVersion`: `2`
-- `$matchHead`: Returns first two or three digits seperated by a dot (e.g. `3.7.1-rc.1` = `3.7.1` or `3.7-rc.1` = `3.7`)
+- `$matchHead`: Returns first two or three digits separated by a dot (e.g. `3.7.1-rc.1` = `3.7.1` or `3.7-rc.1` = `3.7`)
 - `$matchTail`: Returns the rest of `$matchHead` (e.g. `3.7.1-rc.1` = `-rc.1` or `3.7-rc.1` = `-rc.1`)
 - `$preReleaseVersion`: Everything after the first `-` (e.g. `3.7.1-rc.1` would result in `rc.1`)
 - Each capturing group in the [`checkver` property](#adding-checkver-to-a-manifest) adds a `$matchX` variable (named groups are allowed). Matching `v3.7.1/3.7` with [`v(?<version>[\d.]+)\/(?<short>[\d.]+)`](https://regex101.com/r/M7RP3p/1) would result in:

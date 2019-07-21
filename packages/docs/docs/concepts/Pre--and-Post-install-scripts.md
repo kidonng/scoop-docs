@@ -9,7 +9,7 @@ These variables are available for use in `pre_install` / `post_install` scripts:
 | `$dir`          | `C:\Users\username\scoop\apps\$app\current`                                                                         |
 | `$original_dir` | `C:\Users\username\scoop\apps\$app\1.2.3`                                                                           |
 | `$persist_dir`  | `C:\Users\username\scoop\persist\$app`                                                                              |
-| `$manifest`     | `@{homepage=https://example.com/; description=Example app; version=2.4.1; url=http://example.com/app-setup.exe;...` | Deserialized manifest (powershell object)   |
+| `$manifest`     | `@{homepage=https://example.com/; description=Example app; version=2.4.1; url=http://example.com/app-setup.exe;...` | Deserialized manifest (PowerShell object)   |
 | `$version`      | `1.2.3`                                                                                                             | Version being installed                     |
 | `$app`          | `exampleapp`                                                                                                        | Name of application (name of manifest file) |
 | `$architecture` | `64bit`                                                                                                             |
@@ -20,7 +20,7 @@ These variables are available for use in `pre_install` / `post_install` scripts:
 | `$bucketsdir`   | `C:\Users\username\scoop\buckets`                                                                                   |
 | `$modulesdir`   | `C:\Users\username\scoop\modules`                                                                                   |
 | `$cfgpath`      | `~/.scoop`                                                                                                          | Path to Scoop configuration                 |
-| `$cfg`          | `{SCOOP_BRANCH, SCOOP_REPO, lastupdate}`                                                                            | Scoop configuration (powershell object)     |
+| `$cfg`          | `{SCOOP_BRANCH, SCOOP_REPO, lastupdate}`                                                                            | Scoop configuration (PowerShell object)     |
 
 ::: tip
 Check the [`lib/install`](https://github.com/lukesampson/scoop/blob/master/lib/install.ps1) script for more details.

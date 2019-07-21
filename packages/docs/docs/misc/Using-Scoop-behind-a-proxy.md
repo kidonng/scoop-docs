@@ -30,7 +30,7 @@ If you're behind a proxy you might need to run one or more of these commands fir
 [net.webrequest]::defaultwebproxy.credentials = new-object net.networkcredential 'username', 'password'
 ```
 
-These commands will affect any web requests using `net.webclient` until the end of your powershell session.
+These commands will affect any web requests using `net.webclient` until the end of your PowerShell session.
 
 ## Configuring Scoop to use your proxy
 
