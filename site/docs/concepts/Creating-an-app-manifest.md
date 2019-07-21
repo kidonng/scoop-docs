@@ -1,6 +1,6 @@
 # Creating an App Manifest
 
-If you want to install a program that's not included in Scoop, it's easy to create an [app manifest](./App-Manifests.md) yourself.
+If you want to install a program that's not included in Scoop, it's easy to create an [app manifest](App-Manifests.md) yourself.
 
 ## A basic example
 
@@ -37,6 +37,6 @@ scoop install https://gist.github.com/lukesampson/6446567/raw/hello.json
 
 ## Next steps
 
-If you ran some of these examples, you probably noticed a warning saying "no hash in manifest". For reference information on specifying file hashes and much more in your manifests, see the [App Manifests reference](./App-Manifests.md).
+If you ran some of these examples, you probably noticed a warning saying "no hash in manifest". For reference information on specifying file hashes and much more in your manifests, see the [App Manifests reference](App-Manifests.md).
 
-If you want to maintain a collection of apps, see the page on [Buckets](./Buckets.md) for more information.
+If you want to maintain a collection of apps, see the page on [Buckets](Buckets.md) for more information.

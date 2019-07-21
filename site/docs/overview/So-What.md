@@ -22,7 +22,7 @@ If you identify with lots of the following statements, then Scoop has been desig
 
 ## But I already use X, why should I use Scoop?
 
-There are similar tools available, like [Chocolatey](http://chocolatey.org), [Ninite](http://ninite.com) and [CoApp](http://coapp.org). While there's a more in-depth comparison with Chocolatey [here](./Chocolatey-Comparison.md), here are some general reasons why you might like to try Scoop.
+There are similar tools available, like [Chocolatey](http://chocolatey.org), [Ninite](http://ninite.com) and [CoApp](http://coapp.org). While there's a more in-depth comparison with Chocolatey [here](Chocolatey-Comparison.md), here are some general reasons why you might like to try Scoop.
 
 Scoop:
 

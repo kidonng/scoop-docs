@@ -4,7 +4,7 @@
     {
       "src": "package.json",
       "use": "@now/static-build",
-      "config": { "distDir": "packages/docs/.vuepress/dist" }
+      "config": { "distDir": "site/.vuepress/dist" }
     }
   ],
   "routes": [

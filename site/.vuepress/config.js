@@ -17,7 +17,7 @@ module.exports = {
     // Won't show on Now built site
     lastUpdated: true,
     repo: 'kidonng/scoop-docs',
-    docsDir: 'package/docs',
+    docsDir: 'site',
     editLinks: true
   },
   plugins: {
