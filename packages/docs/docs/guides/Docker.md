@@ -18,7 +18,7 @@ Connect to Docker Engine with [Docker CLI](https://docs.docker.com/engine/refere
 docker -H <host:port>
 ```
 
-The Docker Engine daemon must listen to a [tcp socket](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-socket-option).
+The Docker Engine daemon must listen to a [TCP socket](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-socket-option).
 
 ## Provision Docker Engine with Docker Machine
 

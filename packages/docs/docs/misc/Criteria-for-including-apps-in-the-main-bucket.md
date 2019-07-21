@@ -1,6 +1,6 @@
 # Criteria for including apps in the main bucket
 
-For an app to be acceptable for the [main bucket](https://github.com/ScoopInstaller/Main/), it should be:
+For an app to be acceptable for the [main bucket](https://github.com/ScoopInstaller/Main), it should be:
 
 - A reasonably well-known and widely used developer tool
 - The latest stable version of the program
