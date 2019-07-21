@@ -22,7 +22,7 @@ If you identify with lots of the following statements, then Scoop has been desig
 
 ## But I already use X, why should I use Scoop?
 
-There are similar tools available, like [Chocolatey](http://chocolatey.org), [Ninite](http://ninite.com) and [CoApp](http://coapp.org). While there's a more in-depth comparison with Chocolatey [here](Chocolatey-Comparison), here are some general reasons why you might like to try Scoop.
+There are similar tools available, like [Chocolatey](http://chocolatey.org), [Ninite](http://ninite.com) and [CoApp](http://coapp.org). While there's a more in-depth comparison with Chocolatey [here](./Chocolatey-Comparison.md), here are some general reasons why you might like to try Scoop.
 
 Scoop:
 
@@ -38,7 +38,7 @@ Scoop:
 - values your time and attention
 - reads the README for you
 
-There are other, less objective reasons to give Scoop a try. Maybe you want to be able to install apps without Admin privileges. Maybe you like Chocolatey but you don't like the name, or typing `cinst` feels weird, or you're not a fan of messages about 'Chocolatey gods'.
+There are other, less objective reasons to give Scoop a try. Maybe you want to be able to install apps without Admin privileges. Maybe you like Chocolatey but you don't like the name, or typing `cinst` feels weird, or you're not a fan of messages about "Chocolatey gods".
 
 ## What sort of apps can Scoop install?
 
@@ -46,4 +46,4 @@ The apps that install best with Scoop are commonly called "portable" apps: i.e. 
 
 Since installers are common, Scoop supports them too (and their uninstallers).
 
-Scoop is also great at handling single-file programs and Powershell scripts. These don't even need to be compressed. See the [runat](https://github.com/ScoopInstaller/Main/blob/master/bucket/runat.json) package for an example: it's really just a GitHub gist.
+Scoop is also great at handling single-file programs and PowerShell scripts. These don't even need to be compressed. See the [runat](https://github.com/ScoopInstaller/Main/blob/master/bucket/runat.json) package for an example: it's really just a GitHub gist.

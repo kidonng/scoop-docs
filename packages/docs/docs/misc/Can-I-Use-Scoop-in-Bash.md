@@ -16,4 +16,4 @@ functions are [preferred](https://askubuntu.com/a/98791) over aliases because al
 
 ## Long Answer
 
-When you're in bash: if you use Scoop, Powershell needs to be started up every time you call the alias. You'll notice that it can take a while. So the question is, should you use Scoop in bash?
+When you're in bash: if you use Scoop, PowerShell needs to be started up every time you call the alias. You'll notice that it can take a while. So the question is, should you use Scoop in bash?

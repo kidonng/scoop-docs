@@ -1,8 +1,8 @@
 # Why PowerShell?
 
-Scoop tries to 'just work' whether you run it from PowerShell or cmd.exe, but **I recommend using PowerShell** instead. Here's why.
+Scoop tries to "just work" whether you run it from PowerShell or CMD, but **I recommend using PowerShell** instead. Here's why.
 
-## Yes, Powershell has problems
+## Yes, PowerShell has problems
 
 - The `Verb-Noun` verbosity, commands that were seemingly not designed to be typed
 - The ISE—a GUI for a command line interface. I know the commands are hard to type—but is point-and-clicking a solution?
@@ -11,13 +11,13 @@ Scoop tries to 'just work' whether you run it from PowerShell or cmd.exe, but **
 - Modules. Who knows how they work?
 - Doesn't seem like a first class shell within Windows
 - The built-in parameter parsing isn't good
-- A heavy 'sysadmin' feel that makes developers/devops sad
+- A heavy "sysadmin" feel that makes developers/DevOps sad
 
-## Nevertheless..
+## Nevertheless...
 
 You should still use PowerShell. Why? Because you can ignore most of these problems, and you're still left with a great, flexible, dynamic, functional scripting language.
 
-You don't have to write `Verb-Noun` 'cmdlets', just write a script. Return text from your powershell scripts if you want&mdash;because text is the universal interface. Parse your own parameters (or dot-source [getopt](https://github.com/lukesampson/psutils/blob/master/getopt.ps1)). If someone mentions PoSH, ridicule them publicly (kidding).
+You don't have to write `Verb-Noun` "cmdlets", just write a script. Return text from your PowerShell scripts if you want —— because text is the universal interface. Parse your own parameters (or dot-source [getopt](https://github.com/lukesampson/psutils/blob/master/getopt.ps1)). If someone mentions PoSH, ridicule them publicly (kidding).
 
 So once you ignore the bad points, what are you left with?
 
