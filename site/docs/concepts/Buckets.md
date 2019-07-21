@@ -2,7 +2,7 @@
 
 ## What are buckets?
 
-In Scoop, buckets are collections of apps. Or, to be more specific, a bucket is a Git repository containing JSON [app manifests](./App-Manifests.md) which describe how to install an app.
+In Scoop, buckets are collections of apps. Or, to be more specific, a bucket is a Git repository containing JSON [app manifests](App-Manifests.md) which describe how to install an app.
 
 Scoop has a [main bucket](https://github.com/ScoopInstaller/Main/tree/master/bucket) which is bundled with Scoop and this is always available as the primary source for installing apps.
 
@@ -83,10 +83,10 @@ scoop bucket add my-bucket https://github.com/<your-username>/my-bucket
 4. Check that it works:
 
 ```powershell
-scoop bucket list # -> you should see 'my-bucket'
-scoop search hello # -> you should see hello listed under, 'my-bucket bucket:'
+scoop bucket list # -> you should see "my-bucket"
+scoop search hello # -> you should see `hello` listed under, "my-bucket bucket:"
 scoop install hello
-hello # -> you should see 'Hello, <windows-username>!'
+hello # -> you should see "Hello, <windows-username>!"
 ```
 
-5. To share your bucket, all you need to do is tell people how to add you bucket, i.e. by running the command in step 3. If you want your bucket listed in the [Scoop Directory](https://github.com/rasa/scoop-directory) , add a topic of `scoop-bucket` to its github page.
+5. To share your bucket, all you need to do is tell people how to add your bucket, i.e. by running the command in step 3. If you want your bucket listed in the [Scoop Directory](https://github.com/rasa/scoop-directory) , add a topic of `scoop-bucket` to its github page.

@@ -1,5 +1,5 @@
 {
-  "name": "scoop-docs",
+  "name": "scoop-docs-site",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
