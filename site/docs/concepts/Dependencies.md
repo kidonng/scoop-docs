@@ -34,7 +34,7 @@ In this sort of case, when you install an app Scoop will assume you want to inst
 
 ### Install-time Dependencies vs Runtime Dependencies
 
-Runtime dependencies are specified with the `depends` setting in the [app manifest](./App-Manifests.md). Install-time dependencies are detected based on the file extensions of the `url`s in the app manifest.
+Runtime dependencies are specified with the `depends` setting in the [app manifest](App-Manifests.md). Install-time dependencies are detected based on the file extensions of the `url`s in the app manifest.
 
 Scoop treats these differently, e.g. `scoop status` only shows warnings for missing **runtime** dependencies.
 

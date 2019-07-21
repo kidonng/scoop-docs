@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "dev": "vuepress dev packages/docs",
-    "build": "vuepress build packages/docs",
-    "index": "node packages/index/apps.js",
+    "dev": "vuepress dev site",
+    "build": "vuepress build site",
+    "index": "node scripts/indexApps.js",
     "now-build": "yarn build"
   },
   "devDependencies": {
@@ -13,7 +13,8 @@
     "node": "10.x"
   },
   "workspaces": [
-    "packages/*"
+    "site",
+    "scripts"
   ],
   "prettier": {
     "semi": false,
