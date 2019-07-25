@@ -16,8 +16,5 @@
     "vue-function-api": "^2.0.6",
     "vue-instantsearch": "^2.2.2",
     "vuepress": "^1.0.2"
-  },
-  "devDependencies": {
-    "@types/algoliasearch": "^3.30.15"
   }
 }

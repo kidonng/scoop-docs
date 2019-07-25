@@ -6,7 +6,7 @@
       :routing="routing"
     >
       <ais-search-box
-        placeholder="Search apps from known buckets"
+        placeholder="You can also search for apps via scoop search <app>"
         autofocus
         show-loading-indicator
       />
@@ -14,7 +14,7 @@
       <ais-state-results>
         <template slot-scope="{ query, nbHits, nbPages, page }">
           <template v-if="nbHits">
-            <ais-hits>
+            <ais-hits :transform-items="transformItems">
               <table slot-scope="{ items }">
                 <thead>
                   <tr>
@@ -121,14 +121,10 @@
 </template>
 
 <script>
-import { onMounted, onUnmounted } from 'vue-function-api'
-import algoliasearch from 'algoliasearch/lite'
-import { history } from 'instantsearch.js/es/lib/routers'
-import { simple } from 'instantsearch.js/es/lib/stateMappings'
-import 'instantsearch.css/themes/algolia-min.css'
-import ClipboardJS from 'clipboard'
 import ExternalLink from './ExternalLink'
 import CopyHash from './CopyHash'
+import search from '../utils/search'
+import clipboard from '../utils/clipboard'
 
 export default {
   components: {
@@ -136,36 +132,15 @@ export default {
     CopyHash
   },
   setup() {
-    let clipboard
-    const copyListener = e => {
-      if (e.target.matches('.clip')) {
-        const saved = e.target.textContent
-        e.target.textContent = 'Copied!'
-        setTimeout(() => (e.target.textContent = saved), 1000)
-      }
+    clipboard('.clip')
+
+    const transformItems = items => {
+      scroll({ top: 0 })
+
+      return items
     }
 
-    onMounted(() => {
-      clipboard = new ClipboardJS('.clip')
-      document.addEventListener('click', copyListener)
-    })
-
-    onUnmounted(() => {
-      clipboard.destroy()
-      document.removeEventListener('click', copyListener)
-    })
-
-    return {
-      indexName: 'scoop_apps',
-      searchClient: algoliasearch(
-        'F8ONSWSRN9',
-        '134a8d4dd5935708368241431ab745c3'
-      ),
-      routing: {
-        router: history(),
-        stateMapping: simple()
-      }
-    }
+    return { ...search, transformItems }
   }
 }
 </script>

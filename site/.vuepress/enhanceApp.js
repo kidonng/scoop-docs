@@ -1,14 +1,10 @@
 import { plugin } from 'vue-function-api'
 import InstantSearch from 'vue-instantsearch'
 
-export default ({ Vue, router }) => {
+export default ({ Vue }) => {
   Vue.use(plugin)
   Vue.use(InstantSearch)
 
-  if (typeof process === 'undefined') {
-    // https://github.com/algolia/algoliasearch-client-javascript/issues/691
-    window.process = {
-      env: { DEBUG: false }
-    }
-  }
+  // https://github.com/algolia/algoliasearch-client-javascript/issues/691
+  if (typeof window !== 'undefined') window.process = { env: { DEBUG: false } }
 }
