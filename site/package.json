@@ -6,6 +6,7 @@
     "@vuepress/plugin-back-to-top": "^1.0.2",
     "@vuepress/plugin-google-analytics": "^1.0.2",
     "@vuepress/plugin-pwa": "^1.0.2",
+    "@vuepress/theme-default": "kidonng/vuepress-theme-default",
     "algoliasearch": "^3.33.0",
     "clipboard": "^2.0.4",
     "fast-glob": "^3.0.4",
