@@ -1,4 +1,4 @@
-const sidebar = require('./sidebar')
+const sidebar = require('./utils/sidebar')
 
 module.exports = {
   title: 'Scoop',

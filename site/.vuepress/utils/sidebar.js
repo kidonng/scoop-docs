@@ -1,7 +1,7 @@
-const path = require('path')
-const fg = require('fast-glob')
+const { join } = require('path')
+const { sync } = require('fast-glob')
 
-let groups = [
+const groups = [
   {
     title: 'overview',
     children: [
@@ -29,11 +29,9 @@ groups.forEach(group => {
 
   group.children = group.children
     ? group.children.map(page => `docs/${group.title}/${page}`)
-    : fg
-        .sync(['*.md'], {
-          cwd: path.join(__dirname, '../docs', group.title)
-        })
-        .map(page => `docs/${group.title}/${page}`)
+    : sync(['*.md'], {
+        cwd: join(__dirname, '../../docs', group.title)
+      }).map(page => `docs/${group.title}/${page}`)
 
   group.title = group.title
     .split('-')
