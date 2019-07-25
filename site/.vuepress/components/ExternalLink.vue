@@ -13,8 +13,8 @@ export default {
       required: true
     }
   },
-  setup: ({ href }) => {
+  setup: ({ href }) => ({
     convertedHref: Array.isArray(href) ? href[0] : href
-  }
+  })
 }
 </script>
