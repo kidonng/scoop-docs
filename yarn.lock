@@ -787,11 +787,6 @@
     once "^1.4.0"
     universal-user-agent "^2.1.0"
 
-"@types/algoliasearch@^3.30.15":
-  version "3.30.15"
-  resolved "https://registry.yarnpkg.com/@types/algoliasearch/-/algoliasearch-3.30.15.tgz#60aff270cea4b8b848fbb389a68988f163e80934"
-  integrity sha512-UpQvm0phg/wNyy64OGHgAw0as2DxprhihTurKIO+u2/VtXbRk/ZpbsuG/sGaKglJoOmD7a+fWl6k/t8N/jB6Pg==
-
 "@types/events@*":
   version "3.0.0"
   resolved "https://registry.npm.taobao.org/@types/events/download/@types/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"
