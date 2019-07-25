@@ -5,8 +5,5 @@
   "dependencies": {
     "@octokit/graphql": "^3.0.1",
     "algoliasearch": "^3.33.0"
-  },
-  "devDependencies": {
-    "@types/algoliasearch": "^3.30.15"
   }
 }
