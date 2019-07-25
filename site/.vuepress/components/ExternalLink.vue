@@ -13,10 +13,8 @@ export default {
       required: true
     }
   },
-  setup(props) {
-    return {
-      convertedHref: Array.isArray(props.href) ? props.href[0] : props.href
-    }
+  setup: ({ href }) => {
+    convertedHref: Array.isArray(href) ? href[0] : href
   }
 }
 </script>

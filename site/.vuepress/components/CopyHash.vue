@@ -1,5 +1,5 @@
 <template>
-  <button class="clip" :data-clipboard-text="parsedHash">
+  <button class="clip" :data-clipboard-text="convertedHash">
     Copy {{ type }}
   </button>
 </template>
@@ -12,19 +12,16 @@ export default {
       required: true
     }
   },
-  setup(props) {
-    const convertedHash = Array.isArray(props.hash) ? props.hash[0] : props.hash
-    const parsedHash = convertedHash.includes(':')
-      ? convertedHash.split(':')[1]
-      : convertedHash
-    const type = convertedHash.includes(':')
-      ? convertedHash.split(':')[0].toUpperCase()
+  setup({ hash }) {
+    hash = Array.isArray(hash) ? hash[0] : hash
+
+    const convertedHash = hash.includes(':') ? hash.split(':')[1] : hash
+
+    const type = hash.includes(':')
+      ? hash.split(':')[0].toUpperCase()
       : 'SHA256'
 
-    return {
-      parsedHash,
-      type
-    }
+    return { convertedHash, type }
   }
 }
 </script>

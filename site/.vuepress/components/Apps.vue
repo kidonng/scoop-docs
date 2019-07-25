@@ -149,6 +149,7 @@ export default {
       clipboard = new ClipboardJS('.clip')
       document.addEventListener('click', copyListener)
     })
+
     onUnmounted(() => {
       clipboard.destroy()
       document.removeEventListener('click', copyListener)
