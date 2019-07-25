@@ -10,15 +10,5 @@ export default ({ Vue, router }) => {
     window.process = {
       env: { DEBUG: false }
     }
-
-    // Handle DocSearch links
-    // Pending: https://github.com/vuejs/vuepress/pull/1706
-    document.addEventListener('click', e => {
-      const target = e.target.closest('.algolia-docsearch-suggestion')
-      if (target) {
-        e.preventDefault()
-        router.push(target.href.replace('https://scoop-docs.now.sh', ''))
-      }
-    })
   }
 }

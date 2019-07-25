@@ -1053,10 +1053,9 @@
     semver "^6.0.0"
     upath "^1.1.0"
 
-"@vuepress/theme-default@^1.0.2":
+"@vuepress/theme-default@^1.0.2", "@vuepress/theme-default@kidonng/vuepress-theme-default":
   version "1.0.2"
-  resolved "https://registry.npm.taobao.org/@vuepress/theme-default/download/@vuepress/theme-default-1.0.2.tgz#7678c4755db9d891effee838991287d31ae9c5ed"
-  integrity sha1-dnjEdV252JHv/ug4mRKH0xrpxe0=
+  resolved "https://codeload.github.com/kidonng/vuepress-theme-default/tar.gz/8d609e73a39af7decc17ff62001bf12cdff6230c"
   dependencies:
     "@vuepress/plugin-active-header-links" "^1.0.2"
     "@vuepress/plugin-nprogress" "^1.0.2"
