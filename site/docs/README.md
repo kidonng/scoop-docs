@@ -1,10 +1,6 @@
-# Intro
+# Introduction
 
-::: tip
-This site is unofficial. Contents' copyright belongs to their author/owner.
-:::
-
-Scoop is a command-line installer for Windows inspired by [Homebrew](http://mxcl.github.io/homebrew/) and [sub](https://github.com/37signals/sub#readme).
+Scoop is a command-line installer for Windows, inspired by [Homebrew](http://mxcl.github.io/homebrew/) and [sub](https://github.com/37signals/sub#readme).
 
 ## What does Scoop do?
 
@@ -17,7 +13,7 @@ Scoop installs programs from the command line with a minimal amount of friction.
 - The need to find and install dependencies
 - The need to perform extra setup steps to get a working program
 
-Scoop is very scriptable, so you can run repeatable setups to get your environment just the way you like, e.g.:
+Scoop is very scriptable, so you can run repeatable setups to get your environment just the way you like, for example:
 
 ```powershell
 scoop install sudo
@@ -28,6 +24,10 @@ scoop install python ruby go perl
 
 If you've built software that you'd like others to use, Scoop is an alternative to building an installer (e.g. MSI or InnoSetup) — you just need to zip your program and provide a JSON manifest that describes how to install it.
 
-## Video Demo
+## What sort of apps can Scoop install?
 
-<iframe src="https://www.youtube.com/embed/a85QLUJ0Wbs?rel=0" frameborder="0" allowfullscreen></iframe>
+The apps that install best with Scoop are commonly called "portable" apps: i.e. compressed program files that run stand-alone when extracted and don't have side-effects like changing the registry or putting files outside the program directory.
+
+Since installers are common, Scoop supports them too (and their uninstallers).
+
+Scoop is also great at handling single-file programs and PowerShell scripts. These don't even need to be compressed. See the [runat](https://github.com/ScoopInstaller/Main/blob/master/bucket/runat.json) package for an example: it's really just a GitHub gist.

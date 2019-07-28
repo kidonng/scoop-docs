@@ -39,11 +39,3 @@ Scoop:
 - reads the README for you
 
 There are other, less objective reasons to give Scoop a try. Maybe you want to be able to install apps without Admin privileges. Maybe you like Chocolatey but you don't like the name, or typing `cinst` feels weird, or you're not a fan of messages about "Chocolatey gods".
-
-## What sort of apps can Scoop install?
-
-The apps that install best with Scoop are commonly called "portable" apps: i.e. compressed program files that run stand-alone when extracted and don't have side-effects like changing the registry or putting files outside the program directory.
-
-Since installers are common, Scoop supports them too (and their uninstallers).
-
-Scoop is also great at handling single-file programs and PowerShell scripts. These don't even need to be compressed. See the [runat](https://github.com/ScoopInstaller/Main/blob/master/bucket/runat.json) package for an example: it's really just a GitHub gist.
