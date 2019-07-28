@@ -4,6 +4,7 @@
 
 [![Website status](https://img.shields.io/website/https/scoop-docs.now.sh.svg?style=for-the-badge)](https://scoop-docs.now.sh/)
 [![License](https://img.shields.io/github/license/kidonng/scoop-docs.svg?style=for-the-badge)](LICENSE)
+[![Travis status](https://img.shields.io/travis/com/kidonng/scoop-docs?style=for-the-badge)](https://travis-ci.com/kidonng/scoop-docs)
 
 </div>
 
@@ -14,7 +15,8 @@
 - No-fresh navigation
 - Instant documentation search
 - Blazing fast app search for known buckets
-  - We love [Scoop Directory](https://github.com/rasa/scoop-directory) too, but we provide better experience.
+  - We use Travis CI to index apps **everyday**
+  - We love [Scoop Directory](https://github.com/rasa/scoop-directory) too, we'll soon provide categories like that
 
 ## There's already [Better documentation for Scoop.sh](https://github.com/pakeweb/scoop.sh).
 
