@@ -6,13 +6,13 @@
 - [PowerShell 5](https://aka.ms/wmf5download) (or later, including [PowerShell Core](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6)) and [.NET Framework 4.5](https://www.microsoft.com/net/download) (or later)
 
 ::: tip
-If you're on Windows 10 or Windows Server 2012 you should be all set, but Windows 7 and Windows Server 2008 might have older versions. You can run `$psversiontable.psversion.major` to get PowerShell version.
+If you're on Windows 10 or Windows Server 2012 you should be all set, but Windows 7 and Windows Server 2008 might have older versions. You can run `$psversiontable.psversion.major` to get PowerShell version info.
 :::
 
 - PowerShell must be allowed to execute local scripts for your user account
 
 ::: tip
-You can allow this by running `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`.
+You can configure that by running `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` (`Unrestricted` will work too, but it is less secure, so stick with `RemoteSigned` if you're not sure).
 :::
 
 ## Installing Scoop

@@ -8,17 +8,19 @@ Scoop has a [main bucket](https://github.com/ScoopInstaller/Main/tree/master/buc
 
 By default, when you run `scoop install <app>`, it looks in the main bucket, but it's possible to install from other buckets too.
 
-There's an optional [extras bucket](https://github.com/lukesampson/scoop-extras) containing apps that don't quite fit the [criteria of the main bucket](../misc/Criteria-for-including-apps-in-the-main-bucket.md), but are still good to have. There is also an optional [versions](https://github.com/ScoopInstaller/Versions) bucket containing older versions of some well-known packages.
+There's an optional [`extras` bucket](https://github.com/lukesampson/scoop-extras) containing apps that don't quite fit the [criteria of the main bucket](../misc/Criteria-for-including-apps-in-the-main-bucket.md), but are still good to have. There is also an optional [`versions`](https://github.com/ScoopInstaller/Versions) bucket containing older versions of some well-known packages.
 
 And Scoop supports adding other buckets. Anyone can set up their own bucket with their own set of apps, and other people can add and install from this bucket—they just need to know the location of the bucket's Git repository.
 
 ## Known buckets
 
-There is [a list of known buckets](https://github.com/lukesampson/scoop/blob/master/buckets.json) by the community, to see the list of known buckets execute:
+There is a list of known buckets by the community, those can be seen in [`buckets.json`](https://github.com/lukesampson/scoop/blob/master/buckets.json), to see the list of known buckets execute:
 
 ```powershell
 scoop bucket known
 ```
+
+The following buckets are known to scoop:
 
 - [main](https://github.com/ScoopInstaller/Main) - Default bucket for the most common (mostly CLI) apps
 - [extras](https://github.com/lukesampson/scoop-extras) - Apps that don't fit the main bucket's [criteria](../misc/Criteria-for-including-apps-in-the-main-bucket.md)
@@ -27,16 +29,15 @@ scoop bucket known
 - [nirsoft](https://github.com/kodybrown/scoop-nirsoft) - A subset of the [250](https://github.com/rasa/scoop-directory/blob/master/by-score.md#MCOfficer_scoop-nirsoft) [Nirsoft](https://nirsoft.net) apps
 - [java](https://github.com/ScoopInstaller/Java) - Installers for Oracle Java, OpenJDK, Zulu, ojdkbuild, AdoptOpenJDK, Amazon Corretto, BellSoft Liberica & SapMachine
 - [jetbrains](https://github.com/Ash258/Scoop-JetBrains) - Installers for all JetBrains utilities and IDEs
-  <!-- * [nightlies](https://github.com/ScoopInstaller/Nightlies) - No longer used -->
 - [nonportable](https://github.com/oltolm/scoop-nonportable) - Non-portable apps (may require UAC)
 - [php](https://github.com/ScoopInstaller/PHP) - Installers for most versions of PHP
 - [versions](https://github.com/ScoopInstaller/Versions) - Alternative versions of apps found in other buckets
 
-The main bucket is installed by default. Many other application buckets hosted on Github can be found in the [Scoop Directory](https://github.com/rasa/scoop-directory).
+Many other application buckets hosted on Github can be found in the [Scoop Directory](https://github.com/rasa/scoop-directory).
 
 ## Installing from other buckets
 
-If you want to install from a bucket besides the main one, you need to configure Scoop to know about the bucket. For example, to add the optional 'extras' bucket, run:
+If you want to install from a bucket besides the main one, you need to configure Scoop to know about the bucket. For example, to add the optional `extras` bucket, run:
 
 ```powershell
 scoop bucket add extras
