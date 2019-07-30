@@ -14,7 +14,7 @@
     "instantsearch.js": "^3.5.4",
     "prism-theme-one-dark": "^1.0.0",
     "vue-function-api": "^2.0.6",
-    "vue-instantsearch": "^2.2.2",
+    "vue-instantsearch": "^2.3.0",
     "vuepress": "^1.0.2"
   }
 }
