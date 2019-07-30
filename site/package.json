@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@vuepress/plugin-back-to-top": "^1.0.2",
+    "@vuepress/plugin-back-to-top": "^1.0.3",
     "@vuepress/plugin-google-analytics": "^1.0.3",
     "@vuepress/plugin-pwa": "^1.0.3",
     "@vuepress/theme-default": "kidonng/vuepress-theme-default",
