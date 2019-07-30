@@ -3,4 +3,8 @@ language: node_js
 node_js: lts/*
 cache: yarn
 
+branches:
+  only:
+  - master
+
 script: yarn index

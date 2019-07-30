@@ -979,13 +979,6 @@
     markdown-it-table-of-contents "^0.4.0"
     prismjs "^1.13.0"
 
-"@vuepress/plugin-active-header-links@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.npm.taobao.org/@vuepress/plugin-active-header-links/download/@vuepress/plugin-active-header-links-1.0.2.tgz#df04f7fc21640d3e0a0b704037e360e75974d1a2"
-  integrity sha1-3wT3/CFkDT4KC3BAN+Ng51l00aI=
-  dependencies:
-    lodash.throttle "^4.1.1"
-
 "@vuepress/plugin-active-header-links@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-active-header-links/-/plugin-active-header-links-1.0.3.tgz#94cae9a4e554fb7989461741748938efaa2fd65e"
@@ -1012,13 +1005,6 @@
   dependencies:
     cross-spawn "^6.0.5"
 
-"@vuepress/plugin-nprogress@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.npm.taobao.org/@vuepress/plugin-nprogress/download/@vuepress/plugin-nprogress-1.0.2.tgz#3fae13c8af23292cf324d159c77e4d0ffc3133ab"
-  integrity sha1-P64TyK8jKSzzJNFZx35ND/wxM6s=
-  dependencies:
-    nprogress "^0.2.0"
-
 "@vuepress/plugin-nprogress@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-nprogress/-/plugin-nprogress-1.0.3.tgz#a0d6913193c933171b4695bf153efb0c29a76421"
@@ -1041,11 +1027,6 @@
   integrity sha512-6vlXEuaEJtV1EIudcVzJciJf0HRAcWRd6ViB9WO87enkqeT+bR32VZENqcN43RyF8vPP+mmZ/2eDUpvM3J6a2w==
   dependencies:
     "@vuepress/shared-utils" "^1.0.3"
-
-"@vuepress/plugin-search@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.npm.taobao.org/@vuepress/plugin-search/download/@vuepress/plugin-search-1.0.2.tgz#6d43fb46b207d48b797a5bc5b01824662db4684d"
-  integrity sha1-bUP7RrIH1It5elvFsBgkZi20aE0=
 
 "@vuepress/plugin-search@^1.0.3":
   version "1.0.3"
@@ -1075,18 +1056,6 @@
     "@vuepress/plugin-active-header-links" "^1.0.3"
     "@vuepress/plugin-nprogress" "^1.0.3"
     "@vuepress/plugin-search" "^1.0.3"
-    docsearch.js "^2.5.2"
-    stylus "^0.54.5"
-    stylus-loader "^3.0.2"
-    vuepress-plugin-container "^2.0.0"
-
-"@vuepress/theme-default@kidonng/vuepress-theme-default":
-  version "1.0.2"
-  resolved "https://codeload.github.com/kidonng/vuepress-theme-default/tar.gz/8d609e73a39af7decc17ff62001bf12cdff6230c"
-  dependencies:
-    "@vuepress/plugin-active-header-links" "^1.0.2"
-    "@vuepress/plugin-nprogress" "^1.0.2"
-    "@vuepress/plugin-search" "^1.0.2"
     docsearch.js "^2.5.2"
     stylus "^0.54.5"
     stylus-loader "^3.0.2"
