@@ -5,6 +5,7 @@ cache: yarn
 
 branches:
   only:
-  - master
+    - master
 
-script: yarn index
+install: yarn --cwd scripts
+script: yarn index-apps
