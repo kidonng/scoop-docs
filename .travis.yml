@@ -7,4 +7,5 @@ branches:
   only:
     - master
 
+install: yarn --cwd scripts
 script: yarn index-apps

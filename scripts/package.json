@@ -1,6 +1,5 @@
 {
   "name": "scoop-docs-scripts",
-  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@octokit/graphql": "^3.0.1",
