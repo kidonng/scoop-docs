@@ -15,7 +15,7 @@
 - No-fresh navigation
 - Instant documentation search
 - Blazing fast app search for known buckets
-  - We use Travis CI to index apps **everyday**
+  - We update apps **everyday**
   - We love [Scoop Directory](https://github.com/rasa/scoop-directory) too, we'll soon provide categories like that
 
 ## There's already [Better documentation for Scoop.sh](https://github.com/pakeweb/scoop.sh).
