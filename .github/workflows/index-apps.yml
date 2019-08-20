@@ -1,0 +1,26 @@
+name: Index Apps
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  push:
+    branches:
+      - master
+    paths:
+      - scripts/index-apps.js
+
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+      - name: Install dependencies
+        run: yarn --cwd scripts
+      - name: Run script
+        run: yarn index-apps
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ALGOLIA_APIKEY: ${{ secrets.ALGOLIA_APIKEY }}

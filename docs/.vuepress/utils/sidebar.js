@@ -1,5 +1,4 @@
-const { join } = require('path')
-const { sync } = require('fast-glob')
+const globby = require('globby')
 
 const groups = [
   {
@@ -24,14 +23,15 @@ const groups = [
   { title: 'misc' }
 ]
 
-groups.forEach(group => {
+groups.forEach(async group => {
   group.collapsable = false
 
-  group.children = group.children
-    ? group.children.map(page => `docs/${group.title}/${page}`)
-    : sync(['*.md'], {
-        cwd: join(__dirname, '../../docs', group.title)
-      }).map(page => `docs/${group.title}/${page}`)
+  if (group.children)
+    group.children = group.children.map(page => `docs/${group.title}/${page}`)
+  else {
+    const pages = await globby(`docs/docs/${group.title}`)
+    group.children = pages.map(page => page.replace('docs/docs', 'docs'))
+  }
 
   group.title = group.title
     .split('-')
