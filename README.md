@@ -3,7 +3,6 @@
 <div align="center">
 
 [![Website status](https://img.shields.io/website/https/scoop-docs.now.sh.svg?style=for-the-badge)](https://scoop-docs.now.sh/)
-[![Travis status](https://img.shields.io/travis/com/kidonng/scoop-docs?style=for-the-badge)](https://travis-ci.com/kidonng/scoop-docs)
 [![License](https://img.shields.io/github/license/kidonng/scoop-docs.svg?style=for-the-badge)](LICENSE)
 
 </div>
