@@ -94,11 +94,8 @@ Globally installed javas takes precedence over user-installed javas, so running 
 ### Example of switching between versions
 
 ```
-PS C:> scoop install oraclejdk-lts
-Installing 'oraclejdk-lts' (8u172-b11) [64bit]
-
-PS C:> scoop install oraclejdk10
-Installing 'oraclejdk10' (10.0.1-10) [64bit]
+PS C:> scoop install oraclejdk
+Installing 'oraclejdk' (12.0.2-10) [64bit]
 
 PS C:> scoop install zulu6
 Installing 'zulu6' (6.18.1.5) [64bit]
@@ -120,10 +117,10 @@ openjdk version "1.6.0-99"
 OpenJDK Runtime Environment (Zulu 6.18.1.5-win64) (build 1.6.0-99-b99)
 OpenJDK 64-Bit Server VM (Zulu 6.18.1.5-win64) (build 23.77-b99, mixed mode)
 
-PS C:> scoop reset oraclejdk-lts
+PS C:> scoop reset oraclejdk
 
 PS C:> java -version
-java version "1.8.0_172"
-Java(TM) SE Runtime Environment (build 1.8.0_172-b11)
-Java HotSpot(TM) 64-Bit Server VM (build 25.172-b11, mixed mode)
+java version "12.0.2" 2019-07-16
+Java(TM) SE Runtime Environment (build 12.0.2+10)
+Java HotSpot(TM) 64-Bit Server VM (build 12.0.2+10, mixed mode, sharing)
 ```
