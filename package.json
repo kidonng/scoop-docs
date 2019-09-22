@@ -19,7 +19,7 @@
     "instantsearch.js": "^3.5.4",
     "prism-theme-one-dark": "^1.0.0",
     "vue-function-api": "^2.2.0",
-    "vue-instantsearch": "^2.4.0"
+    "vue-instantsearch": "^2.5.0"
   },
   "devDependencies": {
     "globby": "^10.0.1",
