@@ -2,7 +2,7 @@
   "name": "scoop-docs-scripts",
   "private": true,
   "dependencies": {
-    "@octokit/graphql": "^3.0.1",
-    "algoliasearch": "^3.33.0"
+    "@octokit/graphql": "^4.2.2",
+    "algoliasearch": "^3.35.1"
   }
 }

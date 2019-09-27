@@ -13,14 +13,12 @@ jobs:
   index:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
         with:
           node-version: 10
-      - name: Install dependencies
-        run: yarn --cwd scripts
-      - name: Run script
-        run: yarn index-apps
+      - run: yarn --cwd scripts
+      - run: yarn index-apps
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ALGOLIA_APIKEY: ${{ secrets.ALGOLIA_APIKEY }}

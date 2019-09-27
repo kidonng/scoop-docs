@@ -625,9 +625,9 @@ All the properties can be set globally for all architectures or for each archite
   - `$minorVersion`: `7`
   - `$patchVersion`: `1`
   - `$buildVersion`: `2`
-- `$matchHead`: Returns first two or three digits separated by a dot (e.g. `3.7.1-rc.1` = `3.7.1` or `3.7-rc.1` = `3.7`)
-- `$matchTail`: Returns the rest of `$matchHead` (e.g. `3.7.1-rc.1` = `-rc.1` or `3.7-rc.1` = `-rc.1`)
-- `$preReleaseVersion`: Everything after the first `-` (e.g. `3.7.1-rc.1` would result in `rc.1`)
+- `$matchHead`: Returns first two or three digits seperated by a dot (e.g. `3.7.1-rc.1` = `3.7.1` , `3.7.1.2-rc.1` = `3.7.1` or `3.7-rc.1` = `3.7`)
+- `$matchTail`: Returns the rest of `$matchHead` (e.g. `3.7.1-rc.1` = `-rc.1` , `3.7.1.2-rc.1` = `.2-rc.1` or `3.7-rc.1` = `-rc.1`)
+- `$preReleaseVersion`: Everything after the last `-` (e.g. `3.7.1-rc.1` would result in `rc.1`)
 - Each capturing group in the [`checkver` property](#adding-checkver-to-a-manifest) adds a `$matchX` variable (named groups are allowed). Matching `v3.7.1/3.7` with [`v(?<version>[\d.]+)\/(?<short>[\d.]+)`](https://regex101.com/r/M7RP3p/1) would result in:
   - `$match1` or `$matchVersion`: `3.7.1`
   - `$match2` or `$matchShort`: `3.7`

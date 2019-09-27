@@ -17,10 +17,13 @@ You can configure that by running `Set-ExecutionPolicy -ExecutionPolicy RemoteSi
 
 ## Installing Scoop
 
-Run this command from your PowerShell to install Scoop to its default location (`C:\Users\<user>\scoop`):
+Run the following command from your PowerShell to install Scoop to its default location (`C:\Users\<user>\scoop`):
 
 ```powershell
-iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
+Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+
+# or shorter
+iwr -useb get.scoop.sh | iex
 ```
 
 Once installed, run `scoop help` for instructions.
@@ -29,25 +32,25 @@ The default setup is configured so all user installed programs and Scoop itself 
 Globally installed programs (`--global`) live in `C:\ProgramData\scoop`.
 These settings can be changed through environment variables.
 
-## Installing Scoop to custom directory
+## Install Scoop to a custom directory by changing `SCOOP`
 
 Assuming the target directory is `C:\scoop`, in a PowerShell command console, run:
 
 ```powershell
 $env:SCOOP='C:\scoop'
 [environment]::setEnvironmentVariable('SCOOP',$env:SCOOP,'User')
-iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
+# run the installer
 ```
 
 Assuming you didn't see any error messages, Scoop is now ready to run.
 
-## Installing global apps to custom directory
+## Configure Scoop to install global programs to a custom directory by changing `SCOOP_GLOBAL`
 
 Assuming the target directory is `C:\apps`, in an admin-enabled PowerShell command console, run:
 
 ```powershell
 $env:SCOOP_GLOBAL='c:\apps'
-[environment]::setEnvironmentVariable('SCOOP_GLOBAL',$env:SCOOP_GLOBAL,'Machine')
+[Environment]::SetEnvironmentVariable('SCOOP_GLOBAL', $env:SCOOP_GLOBAL, 'Machine')
 scoop install -g <app>
 ```
 
