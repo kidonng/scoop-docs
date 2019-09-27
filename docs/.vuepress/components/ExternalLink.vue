@@ -1,5 +1,5 @@
 <template>
-  <a :href="convertedHref" target="_blank" rel="noopener noreferrer">
+  <a :href="transformedHref" target="_blank" rel="noopener noreferrer">
     <slot />
     <OutboundLink />
   </a>
@@ -13,8 +13,11 @@ export default {
       required: true
     }
   },
-  setup: ({ href }) => ({
-    convertedHref: Array.isArray(href) ? href[0] : href
-  })
+  data() {
+    const { href } = this
+    const transformedHref = Array.isArray(href) ? href[0] : href
+
+    return { transformedHref }
+  }
 }
 </script>

@@ -121,26 +121,40 @@
 </template>
 
 <script>
-import ExternalLink from './ExternalLink'
+import ClipboardJS from 'clipboard'
 import CopyHash from './CopyHash'
+import ExternalLink from './ExternalLink'
 import search from '../utils/search'
-import clipboard from '../utils/clipboard'
 
 export default {
   components: {
-    ExternalLink,
-    CopyHash
+    CopyHash,
+    ExternalLink
   },
-  setup() {
-    clipboard('.clip')
-
-    const transformItems = items => {
-      scroll({ top: 0 })
+  data: () => ({
+    ...search,
+    transformItems: items => {
+      window.scroll({ top: 0 })
 
       return items
     }
+  }),
+  mounted() {
+    const selector = '.clip'
 
-    return { ...search, transformItems }
+    this.copyListener = ({ target }) => {
+      if (target.matches(selector)) {
+        const saved = target.textContent
+        target.textContent = 'Copied!'
+        setTimeout(() => (target.textContent = saved), 1000)
+      }
+    }
+    this.clipboard = new ClipboardJS(selector)
+    document.addEventListener('click', this.copyListener)
+  },
+  destroyed() {
+    this.clipboard.destroy()
+    document.removeEventListener('click', this.copyListener)
   }
 }
 </script>
