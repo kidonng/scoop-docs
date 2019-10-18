@@ -24,8 +24,6 @@ const groups = [
 ]
 
 groups.forEach(async group => {
-  group.collapsable = false
-
   if (group.children)
     group.children = group.children.map(page => `docs/${group.title}/${page}`)
   else {

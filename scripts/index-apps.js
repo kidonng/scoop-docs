@@ -1,8 +1,9 @@
-const graphql = require('@octokit/graphql').defaults({
-  headers: { authorization: `token ${process.env.GITHUB_TOKEN}` }
-})
+const { graphql } = require('@octokit/graphql')
 const algoliasearch = require('algoliasearch')
 
+const graphqlWithAuth = graphql.defaults({
+  headers: { authorization: `token ${process.env.GITHUB_TOKEN}` }
+})
 const client = algoliasearch('F8ONSWSRN9', process.env.ALGOLIA_APIKEY)
 const index = client.initIndex('scoop_apps')
 const tmpIndex = client.initIndex('scoop_apps_tmp')
@@ -10,7 +11,7 @@ const tmpIndex = client.initIndex('scoop_apps_tmp')
 ;(async () => {
   try {
     // Get known buckets
-    let known = (await graphql(`
+    const { repository } = await graphqlWithAuth(`
       {
         repository(owner: "lukesampson", name: "scoop") {
           object(expression: "master:buckets.json") {
@@ -20,8 +21,8 @@ const tmpIndex = client.initIndex('scoop_apps_tmp')
           }
         }
       }
-    `)).repository.object.text
-    known = Object.values(JSON.parse(known))
+    `)
+    const known = Object.values(JSON.parse(repository.object.text))
 
     let buckets = [
       ...known,
@@ -44,17 +45,17 @@ const tmpIndex = client.initIndex('scoop_apps_tmp')
       const name = repo[1]
 
       query += `
-      bucket${index}: repository(owner: "${owner}", name: "${name}") {
-        object(expression: "master:") {
-          ... on Tree {
-            entries {
-              name
-              type
+        bucket${index}: repository(owner: "${owner}", name: "${name}") {
+          object(expression: "master:") {
+            ... on Tree {
+              entries {
+                name
+                type
+              }
             }
           }
         }
-      }
-    `
+      `
 
       return {
         owner,
@@ -64,44 +65,47 @@ const tmpIndex = client.initIndex('scoop_apps_tmp')
 
     try {
       // Get bucket tree to determine manifest file path
-      Object.values(await graphql(`{${query}}`)).forEach((repo, index) => {
-        if (
-          repo.object.entries.some(
-            entry => entry.name === 'bucket' && entry.type === 'tree'
+      Object.values(await graphqlWithAuth(`{${query}}`)).forEach(
+        (repo, index) => {
+          if (
+            repo.object.entries.some(
+              entry => entry.name === 'bucket' && entry.type === 'tree'
+            )
           )
-        )
-          buckets[index].subDir = true
-      })
+            buckets[index].subDir = true
+        }
+      )
 
       query = ''
 
       buckets.forEach((bucket, index) => {
         query += `
-      bucket${index}: repository(owner: "${bucket.owner}", name: "${
+          bucket${index}: repository(owner: "${bucket.owner}", name: "${
           bucket.name
         }") {
-        object(expression: "master:${bucket.subDir ? 'bucket' : ''}") {
-          ... on Tree {
-            entries {
-              name
-              object {
-                ... on Blob {
-                  text
+            object(expression: "master:${bucket.subDir ? 'bucket' : ''}") {
+              ... on Tree {
+                entries {
+                  name
+                  object {
+                    ... on Blob {
+                      text
+                    }
+                  }
                 }
               }
             }
           }
-        }
-      }
-    `
+        `
       })
 
       try {
         // Get manifests
-        let data = Object.values(await graphql(`{${query}}`)).map(bucket =>
-          bucket.object.entries
-            .filter(entry => entry.name.endsWith('.json'))
-            .filter(entry => !(entry.name === 'schema.json'))
+        let data = Object.values(await graphqlWithAuth(`{${query}}`)).map(
+          bucket =>
+            bucket.object.entries
+              .filter(entry => entry.name.endsWith('.json'))
+              .filter(entry => !(entry.name === 'schema.json'))
         )
 
         let apps = []
