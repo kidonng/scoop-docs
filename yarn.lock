@@ -1211,6 +1211,13 @@ ajv@^6.1.0, ajv@^6.10.2, ajv@^6.5.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
+algoliasearch-helper@0.0.0-5a0352a:
+  version "0.0.0-5a0352a"
+  resolved "https://registry.yarnpkg.com/algoliasearch-helper/-/algoliasearch-helper-0.0.0-5a0352a.tgz#91a739e7741bc96004851715cb4b4311c530d6bc"
+  integrity sha512-UElrfeoKxysLld8PY5P6ziNIFkbPVYNfWp9Bv4qCMM5/wozWwfJn0H+s3x9XZkKWI1zEs1Bf9ITg1V53oOkbZg==
+  dependencies:
+    events "^1.1.1"
+
 algoliasearch-helper@^2.26.0, algoliasearch-helper@^2.26.1:
   version "2.28.0"
   resolved "https://registry.yarnpkg.com/algoliasearch-helper/-/algoliasearch-helper-2.28.0.tgz#1cafa7fcd02c15e9411c4d1778e9a4e89581916d"
@@ -3939,18 +3946,16 @@ instantsearch.js@^3.6.0:
     prop-types "^15.5.10"
     qs "^6.5.1"
 
-instantsearch.js@^3.7.0:
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/instantsearch.js/-/instantsearch.js-3.7.0.tgz#6768c7270415867f7777fc9a4e7231791d015079"
-  integrity sha512-Hkj72CP/Du7uR6R8N2IXo/JHiGU9Z/DwDbQcvRaLKWGd3fc4WjQpl1QPB2OUsoM0Ym0Zv1xjyYTmuU1VvGdySw==
+instantsearch.js@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/instantsearch.js/-/instantsearch.js-4.0.0.tgz#460579ba71579526fa6c2215fc27e7f929c08433"
+  integrity sha512-VCjly8Ec+VAgoaRJJHfGJ4YiY77o/UVAfDv9G/bfFu/cLIelA9whFyp0yqMik1yXIr4W4F81eOxf2lI3A6n1Hg==
   dependencies:
-    algoliasearch-helper "^2.26.0"
+    algoliasearch-helper "0.0.0-5a0352a"
     classnames "^2.2.5"
     events "^1.1.0"
     hogan.js "^3.0.2"
-    preact "^8.3.0"
-    preact-compat "^3.18.0"
-    preact-rheostat "^2.1.1"
+    preact "^10.0.0"
     prop-types "^15.5.10"
     qs "^6.5.1"
 
@@ -5875,6 +5880,11 @@ preact-transition-group@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/preact-transition-group/-/preact-transition-group-1.1.1.tgz#f0a49327ea515ece34ea2be864c4a7d29e5d6e10"
   integrity sha1-8KSTJ+pRXs406ivoZMSn0p5dbhA=
+
+preact@^10.0.0:
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.0.1.tgz#16451887a8490dd534d60d1bc7d2ff4a70f7e0ee"
+  integrity sha512-lq7jo1rwwCd1YkiBcuOxRc3I0y1FZACa6O7tgNXt47QZJtSlLEE53f/FDNsLtiB2IVQTHbaey20TjSPmejhDyQ==
 
 preact@^8.2.5, preact@^8.3.0:
   version "8.5.2"
