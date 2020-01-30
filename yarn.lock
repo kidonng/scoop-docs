@@ -1220,6 +1220,13 @@ algoliasearch-helper@^2.26.0, algoliasearch-helper@^2.28.1:
     lodash "^4.17.5"
     qs "^6.5.1"
 
+algoliasearch-helper@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/algoliasearch-helper/-/algoliasearch-helper-3.1.0.tgz#f8725bd6f0d1f515955d720ccd617a3af4ac695f"
+  integrity sha512-d48U2GIsGJr/fVV+W7Z1Ud6GWLSblKQgA71M254YNtxvniKFsbI0Z6hQZ/8yodfGWHjJ4dETeb7ihGKQaXihUw==
+  dependencies:
+    events "^1.1.1"
+
 algoliasearch@^3.24.5:
   version "3.35.0"
   resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-3.35.0.tgz#03f2900698c7c547fce9fb8fb8d0b9a56c8da405"
@@ -3935,7 +3942,7 @@ instantsearch.css@^7.3.1:
   resolved "https://registry.yarnpkg.com/instantsearch.css/-/instantsearch.css-7.4.1.tgz#e4f76a14c31e716aec6994cc1e7813d83d1e9862"
   integrity sha512-CkSn5lEA0xQJ8o3atUYQoKK8uejUXsRw19jZXwonHqkoORE/JvwJWES9bk795Q0IhxN5xyuP4B61+M3pqR9B2A==
 
-instantsearch.js@^3.6.0, instantsearch.js@^3.7.0:
+instantsearch.js@^3.6.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/instantsearch.js/-/instantsearch.js-3.7.0.tgz#6768c7270415867f7777fc9a4e7231791d015079"
   integrity sha512-Hkj72CP/Du7uR6R8N2IXo/JHiGU9Z/DwDbQcvRaLKWGd3fc4WjQpl1QPB2OUsoM0Ym0Zv1xjyYTmuU1VvGdySw==
@@ -3947,6 +3954,19 @@ instantsearch.js@^3.6.0, instantsearch.js@^3.7.0:
     preact "^8.3.0"
     preact-compat "^3.18.0"
     preact-rheostat "^2.1.1"
+    prop-types "^15.5.10"
+    qs "^6.5.1"
+
+instantsearch.js@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/instantsearch.js/-/instantsearch.js-4.2.0.tgz#61d6bb61f41faa9283d942d1c8548edb1cf80cee"
+  integrity sha512-KsfvO3Cq+ex0z0kibiFBs9AbtONMzoXRIsNrVPk0ZG/QNJfMqjUxs4o+AhvJQmZRbsCRfVl0KNJPDtGH4uLeUw==
+  dependencies:
+    algoliasearch-helper "^3.1.0"
+    classnames "^2.2.5"
+    events "^1.1.0"
+    hogan.js "^3.0.2"
+    preact "^10.0.0"
     prop-types "^15.5.10"
     qs "^6.5.1"
 
@@ -5871,6 +5891,11 @@ preact-transition-group@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/preact-transition-group/-/preact-transition-group-1.1.1.tgz#f0a49327ea515ece34ea2be864c4a7d29e5d6e10"
   integrity sha1-8KSTJ+pRXs406ivoZMSn0p5dbhA=
+
+preact@^10.0.0:
+  version "10.2.1"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.2.1.tgz#b30eb4cdc455499ee2ff82e0fa1a16fc8e20f3a4"
+  integrity sha512-BUNvmQcVtNElku7mYHexIiM5JlGNSW2BY9O2t9xk1NqA43O8wbE0cah6PAlvT7PBHvyDRJ5TAj5Fewdi9DqLoQ==
 
 preact@^8.2.5, preact@^8.3.0:
   version "8.5.3"
