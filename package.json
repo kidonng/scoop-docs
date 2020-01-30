@@ -6,9 +6,6 @@
     "build": "vuepress build docs",
     "index-apps": "node scripts/index-apps.js"
   },
-  "engines": {
-    "node": "10.x"
-  },
   "dependencies": {
     "@vuepress/plugin-back-to-top": "^1.2.0",
     "@vuepress/plugin-google-analytics": "^1.2.0",
