@@ -6,7 +6,7 @@
       :routing="routing"
     >
       <ais-search-box
-        placeholder="You can also search for apps via scoop search <app>"
+        placeholder="Also try: scoop search <app>"
         autofocus
         show-loading-indicator
       />
