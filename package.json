@@ -25,5 +25,8 @@
   "prettier": {
     "semi": false,
     "singleQuote": true
+  },
+  "renovate": {
+    "extends": [":base"]
   }
 }
