@@ -12,7 +12,7 @@
     universal-user-agent "^3.0.0"
     url-template "^2.0.8"
 
-"@octokit/graphql@^4.2.2":
+"@octokit/graphql@4.2.2":
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/@octokit/graphql/-/graphql-4.2.2.tgz#b998a16f7778fbb4204d1a9c4e2cde2525ba183a"
   integrity sha512-4DD0mF3OOTVrhUPOZUvDzhmxEGNsF4UVMR5anMNJJPN6PqNBqMwYgKRslYIAk7bAVE370TSU3UzrZNfCr/fJXQ==
@@ -46,7 +46,7 @@ agentkeepalive@^2.2.0:
   resolved "https://registry.yarnpkg.com/agentkeepalive/-/agentkeepalive-2.2.0.tgz#c5d1bd4b129008f1163f236f86e5faea2026e2ef"
   integrity sha1-xdG9SxKQCPEWPyNvhuX66iAm4u8=
 
-algoliasearch@^3.35.1:
+algoliasearch@3.35.1:
   version "3.35.1"
   resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-3.35.1.tgz#297d15f534a3507cab2f5dfb996019cac7568f0c"
   integrity sha512-K4yKVhaHkXfJ/xcUnil04xiSrB8B8yHZoFEhWNpXg23eiCnqvTZw1tn/SqvdsANlYHLJlKl0qi3I/Q2Sqo7LwQ==
