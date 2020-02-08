@@ -3,7 +3,6 @@ const sidebar = require('./utils/sidebar')
 module.exports = {
   title: 'Scoop',
   description: 'A command-line installer for Windows',
-  dest: 'public',
   themeConfig: {
     nav: [
       { text: 'Docs', link: '/docs/' },
