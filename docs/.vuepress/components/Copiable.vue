@@ -19,7 +19,7 @@ export default {
   }),
   methods: {
     copy() {
-      copy(this.text || this.$el.textContent)
+      copy(this.text || this.$el.innerText)
       this.showCopied = true
       setTimeout(() => (this.showCopied = false), 1000)
     }
