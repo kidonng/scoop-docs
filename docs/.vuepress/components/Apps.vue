@@ -61,7 +61,10 @@
                       <ul>
                         <li v-if="item.url">
                           <ExternalLink :href="item.url">Download</ExternalLink>
-                          <CopyHash :hash="item.hash" />
+                          <CopyHash
+                            v-if="item.version !== 'nightly'"
+                            :hash="item.hash"
+                          />
                         </li>
                         <template v-else>
                           <li v-if="item.architecture['64bit']">
@@ -70,7 +73,10 @@
                             >
                               64bit
                             </ExternalLink>
-                            <CopyHash :hash="item.architecture['64bit'].hash" />
+                            <CopyHash
+                              v-if="item.version !== 'nightly'"
+                              :hash="item.architecture['64bit'].hash"
+                            />
                           </li>
                           <li v-if="item.architecture['32bit']">
                             <ExternalLink
@@ -78,7 +84,10 @@
                             >
                               32bit
                             </ExternalLink>
-                            <CopyHash :hash="item.architecture['32bit'].hash" />
+                            <CopyHash
+                              v-if="item.version !== 'nightly'"
+                              :hash="item.architecture['32bit'].hash"
+                            />
                           </li>
                         </template>
                       </ul>
