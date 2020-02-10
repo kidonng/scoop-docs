@@ -39,37 +39,32 @@
                       </ExternalLink>
                     </td>
                     <td>
-                      <code
-                        v-if="!item.main"
-                        class="clip"
-                        :id="`bucket${index}`"
-                        :data-clipboard-target="`#bucket${index}`"
-                      >
-                        scoop bucket add
-                        <template v-if="item.known">
-                          {{
-                            item.bucket
-                              .split('/')[1]
-                              .toLowerCase()
-                              .includes('scoop-')
-                              ? item.bucket
-                                  .split('/')[1]
-                                  .toLowerCase()
-                                  .substring(6)
-                              : item.bucket.split('/')[1].toLowerCase()
-                          }}
-                        </template>
-                        <template v-else>
-                          <strong>{{ item.bucket.split('/')[1] }}</strong>
-                          https://github.com/{{ item.bucket }}
-                        </template>
+                      <code v-if="!item.main">
+                        <Copiable class="inner">
+                          scoop bucket add
+                          <template v-if="item.known">
+                            {{
+                              item.bucket
+                                .split('/')[1]
+                                .toLowerCase()
+                                .includes('scoop-')
+                                ? item.bucket
+                                    .split('/')[1]
+                                    .toLowerCase()
+                                    .substring(6)
+                                : item.bucket.split('/')[1].toLowerCase()
+                            }}
+                          </template>
+                          <template v-else>
+                            <strong>{{ item.bucket.split('/')[1] }}</strong>
+                            https://github.com/{{ item.bucket }}
+                          </template>
+                        </Copiable>
                       </code>
-                      <code
-                        class="clip"
-                        :id="`app${index}`"
-                        :data-clipboard-target="`#app${index}`"
-                      >
-                        scoop install {{ item.name }}
+                      <code>
+                        <Copiable class="inner">
+                          scoop install {{ item.name }}
+                        </Copiable>
                       </code>
                     </td>
                     <td>
@@ -121,16 +116,9 @@
 </template>
 
 <script>
-import ClipboardJS from 'clipboard'
-import CopyHash from './CopyHash'
-import ExternalLink from './ExternalLink'
 import search from '../utils/search'
 
 export default {
-  components: {
-    CopyHash,
-    ExternalLink
-  },
   data: () => ({
     ...search,
     transformItems: items => {
@@ -138,30 +126,15 @@ export default {
 
       return items
     }
-  }),
-  mounted() {
-    const selector = '.clip'
-
-    this.copyListener = ({ target }) => {
-      if (target.matches(selector)) {
-        const saved = target.textContent
-        target.textContent = 'Copied!'
-        setTimeout(() => (target.textContent = saved), 1000)
-      }
-    }
-    this.clipboard = new ClipboardJS(selector)
-    document.addEventListener('click', this.copyListener)
-  },
-  destroyed() {
-    this.clipboard.destroy()
-    document.removeEventListener('click', this.copyListener)
-  }
+  })
 }
 </script>
 
 <style lang="stylus" scoped>
-code.clip
+code
   display block
   margin-top .5rem
-  cursor pointer
+
+.inner
+  display block !important
 </style>
