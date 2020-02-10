@@ -43,17 +43,7 @@
                         <Copiable class="inner">
                           scoop bucket add
                           <template v-if="item.known">
-                            {{
-                              item.bucket
-                                .split('/')[1]
-                                .toLowerCase()
-                                .includes('scoop-')
-                                ? item.bucket
-                                    .split('/')[1]
-                                    .toLowerCase()
-                                    .substring(6)
-                                : item.bucket.split('/')[1].toLowerCase()
-                            }}
+                            {{ trimBucketName(item) }}
                           </template>
                           <template v-else>
                             <strong>{{ item.bucket.split('/')[1] }}</strong>
@@ -126,7 +116,14 @@ export default {
 
       return items
     }
-  })
+  }),
+  methods: {
+    trimBucketName(item) {
+      const bucket = item.bucket.split('/')[1].toLowerCase()
+
+      return bucket.includes('scoop-') ? bucket.substring(6) : bucket
+    }
+  }
 }
 </script>
 
