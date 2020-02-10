@@ -12,18 +12,21 @@ export default {
       required: true
     }
   },
-  data() {
-    const { hash } = this
-    const hashItem = Array.isArray(hash) ? hash[0] : hash
-
-    const transformedHash = hashItem.includes(':')
-      ? hashItem.split(':')[1]
-      : hashItem
-    const type = hashItem.includes(':')
-      ? hashItem.split(':')[0].toUpperCase()
-      : 'SHA256'
-
-    return { transformedHash, type }
+  computed: {
+    hashItem() {
+      const { hash } = this
+      return Array.isArray(hash) ? hash[0] : hash
+    },
+    transformedHash() {
+      const { hashItem } = this
+      return hashItem.includes(':') ? hashItem.split(':')[1] : hashItem
+    },
+    type() {
+      const { hashItem } = this
+      return hashItem.includes(':')
+        ? hashItem.split(':')[0].toUpperCase()
+        : 'SHA256'
+    }
   }
 }
 </script>
