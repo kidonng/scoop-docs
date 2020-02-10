@@ -1,6 +1,6 @@
 <template>
-  <button class="clip" :data-clipboard-text="transformedHash">
-    Copy {{ type }}
+  <button>
+    <Copiable class="inner" :text="transformedHash">Copy {{ type }}</Copiable>
   </button>
 </template>
 
@@ -33,7 +33,7 @@ button
   white-space nowrap
   border 0
   border-bottom 1px solid darken($accentColor, 10%)
-  padding .4rem .8rem
+  padding 0
   border-radius 4px
   color white
   background-color $accentColor
@@ -41,4 +41,7 @@ button
 
   &:hover
     background-color lighten($accentColor, 10%)
+
+.inner
+  padding .4rem .8rem
 </style>
