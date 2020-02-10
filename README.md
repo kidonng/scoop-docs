@@ -1,9 +1,6 @@
 # Scoop Docs
 
-[![Website status](https://img.shields.io/website/https/scoop-docs.now.sh.svg)](https://scoop-docs.now.sh/)
-[![License](https://img.shields.io/github/license/kidonng/scoop-docs.svg)](LICENSE)
-
-**DISCLAIMER** This site is unofficial. Contents' copyright belongs to their author.
+**DISCLAIMER:** This site is unofficial. Contents' copyright belongs to their author.
 
 [Scoop documentation](https://github.com/lukesampson/scoop/wiki) done right, featuring:
 
