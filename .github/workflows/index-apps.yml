@@ -4,10 +4,8 @@ on:
   schedule:
     - cron: '0 0 * * *'
   push:
-    branches:
-      - master
     paths:
-      - scripts/index-apps.js
+      - scripts/index-apps.ts
 
 jobs:
   index:
@@ -17,8 +15,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - run: yarn --cwd scripts
-      - run: yarn index-apps
+      - run: cd scripts && yarn
+      - run: yarn ts-node index-apps.ts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ALGOLIA_APPID: F8ONSWSRN9
           ALGOLIA_APIKEY: ${{ secrets.ALGOLIA_APIKEY }}
