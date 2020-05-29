@@ -1,35 +1,33 @@
----
-home: true
-actionText: Quick Start →
-actionLink: docs/getting-started/Quick-Start.md
-features:
-  - title: Get comfortable on the Windows command line
-    details: Looking for familiar Unix tools? Tired of PowerShell’s Verb-Noun verbosity? Scoop helps you get the programs you need, with a minimal amount of point-and-clicking.
-  - title: Say goodbye to permission pop-ups
-    details: Scoop installs programs to your home directory by default. So you don’t need admin permissions to install programs, and you won’t see UAC popups every time you need to add or remove a program.
-  - title: Scoop reads the README for you
-    details: Not sure whether you need 32-bit or 64-bit? Can’t remember that command you have to type after you install to get that other thing you need? Scoop has you covered. Just "scoop install" and you’ll be ready to work in no time.
-footer: This site is unofficial. Contents' copyright belongs to their author.
----
+# Introduction
 
-## Scoop installs the tools you know and love
+Scoop is a command-line installer for Windows, inspired by [Homebrew](http://mxcl.github.io/homebrew/) and [sub](https://github.com/37signals/sub#readme).
 
-```powershell
-scoop install curl
-```
+## What does Scoop do?
 
-## Demo
+Scoop installs programs from the command line with a minimal amount of friction. It tries to eliminate things like:
 
-<div class="wrapper">
-  <iframe src="https://www.youtube.com/embed/a85QLUJ0Wbs?rel=0" allowfullscreen></iframe>
-</div>
+- Permission popup windows
+- GUI wizard-style installers
+- Path pollution from installing lots of programs
+- Unexpected side-effects from installing and uninstalling programs
+- The need to find and install dependencies
+- The need to perform extra setup steps to get a working program
 
-## Installs in seconds
-
-Make sure [PowerShell 5](https://aka.ms/wmf5download) (or later, include [PowerShell Core](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6)) and [.NET Framework 4.5](https://www.microsoft.com/net/download) (or later) are installed. Then run:
+Scoop is very scriptable, so you can run repeatable setups to get your environment just the way you like, for example:
 
 ```powershell
-iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
+scoop install sudo
+sudo scoop install 7zip git openssh --global
+scoop install aria2 curl grep sed less touch
+scoop install python ruby go perl
 ```
 
-**Note:** if you get an error you might need to change the execution policy (i.e. enable PowerShell) with `Set-ExecutionPolicy RemoteSigned -scope CurrentUser`.
+If you've built software that you'd like others to use, Scoop is an alternative to building an installer (e.g. MSI or InnoSetup) — you just need to zip your program and provide a JSON manifest that describes how to install it.
+
+## What sort of apps can Scoop install?
+
+The apps that install best with Scoop are commonly called "portable" apps: i.e. compressed program files that run stand-alone when extracted and don't have side-effects like changing the registry or putting files outside the program directory.
+
+Since installers are common, Scoop supports them too (and their uninstallers).
+
+Scoop is also great at handling single-file programs and PowerShell scripts. These don't even need to be compressed. See the [runat](https://github.com/ScoopInstaller/Main/blob/master/bucket/runat.json) package for an example: it's really just a GitHub gist.
