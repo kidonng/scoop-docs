@@ -2,8 +2,8 @@
   "name": "scoop-docs",
   "private": true,
   "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
+    "dev": "vuepress dev",
+    "build": "vuepress build",
     "index-apps": "node scripts/index-apps.js"
   },
   "dependencies": {
