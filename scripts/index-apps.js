@@ -27,7 +27,6 @@ const tmpIndex = client.initIndex('scoop_apps_tmp')
     let buckets = [
       ...known,
       // Some most starred buckets (https://github.com/rasa/scoop-directory/blob/master/by-stars.md)
-      'https://github.com/Ash258/scoop-Ash258',
       'https://github.com/h404bi/dorado',
       'https://github.com/TheCjw/scoop-retools',
       'https://github.com/rasa/scoops',
