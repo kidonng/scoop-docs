@@ -15,7 +15,7 @@
     "instantsearch.css": "7.4.2",
     "instantsearch.js": "3.7.0",
     "prism-theme-one-dark": "1.0.0",
-    "vue-instantsearch": "2.7.0"
+    "vue-instantsearch": "3.0.3"
   },
   "devDependencies": {
     "globby": "11.0.0",
