@@ -13,7 +13,7 @@
     "algoliasearch": "3.35.1",
     "copy-text-to-clipboard": "2.2.0",
     "instantsearch.css": "7.4.2",
-    "instantsearch.js": "3.7.0",
+    "instantsearch.js": "4.7.0",
     "prism-theme-one-dark": "1.0.0",
     "vue-instantsearch": "2.7.0"
   },
