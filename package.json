@@ -18,7 +18,7 @@
     "vue-instantsearch": "2.7.0"
   },
   "devDependencies": {
-    "globby": "11.0.0",
+    "globby": "11.0.2",
     "prettier": "2.0.5",
     "vuepress": "1.5.0"
   },
