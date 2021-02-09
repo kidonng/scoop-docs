@@ -3,6 +3,6 @@
   "private": true,
   "dependencies": {
     "@octokit/graphql": "4.2.2",
-    "algoliasearch": "3.35.1"
+    "algoliasearch": "4.8.5"
   }
 }

@@ -10,7 +10,7 @@
     "@vuepress/plugin-back-to-top": "1.5.0",
     "@vuepress/plugin-google-analytics": "1.5.0",
     "@vuepress/plugin-pwa": "1.5.0",
-    "algoliasearch": "3.35.1",
+    "algoliasearch": "4.8.5",
     "copy-text-to-clipboard": "2.2.0",
     "instantsearch.css": "7.4.2",
     "instantsearch.js": "3.7.0",
