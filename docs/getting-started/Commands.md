@@ -20,11 +20,13 @@ The current commands are (output from `scoop help`):
 alias          Manage scoop aliases
 bucket         Manage Scoop buckets
 cache          Show or clear the download cache
+cat            Show content of specified manifest. If available, `bat` will be used to pretty-print the JSON.
 checkup        Check for potential problems
 cleanup        Cleanup apps by removing old versions
 config         Get or set configuration values
 create         Create a custom app manifest
 depends        List dependencies for an app
+download       Download apps in the cache folder and verify hashes
 export         Exports (an importable) list of installed apps
 help           Show help for a command
 hold           Hold an app to disable updates
@@ -35,6 +37,7 @@ list           List installed apps
 prefix         Returns the path to the specified app
 reset          Reset an app to resolve conflicts
 search         Search available apps
+shim           Manipulate Scoop shims
 status         Show status and check for new app versions
 unhold         Unhold an app to enable updates
 uninstall      Uninstall an app
