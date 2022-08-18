@@ -5,6 +5,8 @@ If you want to customize the settings of your PHP Installation you should never 
 Always create you own custom configuration files inside the configuration scan dir.
 The directory is located at `~/scoop/persist/php/cli/conf.d`. You can create as many `.ini` files as you like.
 
+Be aware that this only applies once the `PHP_INI_SCAN_DIR` variable is set, which may not happen right after scoop was installed, and may require a restart. In case of doubt, you may check `php --ini` to make sure which files are loaded, depending on that env variable.
+
 ## Examples
 
 Some basic settings like the timezone and limits (`custom.ini`)
